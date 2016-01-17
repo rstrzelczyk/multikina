@@ -27,10 +27,10 @@ NumberReservedTickets::~NumberReservedTickets()
 
 void NumberReservedTickets::on_pushButton_main_menu_back_2_clicked()
 {
-    NumberReservedTickets::close();
+    //NumberReservedTickets::close();
 }
 
 void NumberReservedTickets::on_pushButton_back_2_clicked()
 {
-    NumberReservedTickets::close();
+   // NumberReservedTickets::close();
 }

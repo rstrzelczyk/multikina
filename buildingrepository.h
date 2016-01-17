@@ -10,16 +10,20 @@
 class BuildingRepository
 {
 public:
-    QSqlDatabase db;
-    QSqlQueryModel *qmodel;
+   // QSqlDatabase db;
+   // QSqlQueryModel *qmodel;
 
     BuildingRepository();
     ~BuildingRepository();
 
-    QList<Building*> *Buildings;
+    void getSchedule(Building *building);
 
-    QString getBuildingList();
-    void getBuildingList2();
+
+
+    //QList<Building*> *Buildings;
+
+    //QString getBuildingList();
+    //void getBuildingList2();
 };
 
 #endif // BUILDINGREPOSITORY_H

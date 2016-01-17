@@ -38,8 +38,8 @@ public:
     
 public slots:
 
-    void refreshTime();
-    void log_out();
+   // void refreshTime();
+   // void log_out();
 
 private slots:
     void on_pushButton_give_ticket_clicked();

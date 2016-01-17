@@ -13,13 +13,15 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QDialog>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -28,6 +30,7 @@ QT_BEGIN_NAMESPACE
 class Ui_NewClientAccountForm
 {
 public:
+    QWidget *centralwidget;
     QGroupBox *groupBoxlogin;
     QPushButton *pushButton_ok;
     QLabel *label_places_involved;
@@ -62,30 +65,34 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_senior_discount;
     QPushButton *pushButton_confitm_student_discount;
+    QMenuBar *menubar;
+    QStatusBar *statusbar;
 
-    void setupUi(QDialog *NewClientAccountForm)
+    void setupUi(QMainWindow *NewClientAccountForm)
     {
         if (NewClientAccountForm->objectName().isEmpty())
             NewClientAccountForm->setObjectName(QStringLiteral("NewClientAccountForm"));
-        NewClientAccountForm->resize(393, 554);
-        groupBoxlogin = new QGroupBox(NewClientAccountForm);
+        NewClientAccountForm->resize(464, 681);
+        centralwidget = new QWidget(NewClientAccountForm);
+        centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        groupBoxlogin = new QGroupBox(centralwidget);
         groupBoxlogin->setObjectName(QStringLiteral("groupBoxlogin"));
-        groupBoxlogin->setGeometry(QRect(10, 10, 371, 526));
+        groupBoxlogin->setGeometry(QRect(10, 10, 441, 631));
         pushButton_ok = new QPushButton(groupBoxlogin);
         pushButton_ok->setObjectName(QStringLiteral("pushButton_ok"));
-        pushButton_ok->setGeometry(QRect(70, 450, 101, 31));
+        pushButton_ok->setGeometry(QRect(90, 510, 121, 41));
         label_places_involved = new QLabel(groupBoxlogin);
         label_places_involved->setObjectName(QStringLiteral("label_places_involved"));
-        label_places_involved->setGeometry(QRect(10, 500, 111, 16));
+        label_places_involved->setGeometry(QRect(40, 590, 111, 16));
         QFont font;
         font.setPointSize(8);
         label_places_involved->setFont(font);
         pushButton_choose_building = new QPushButton(groupBoxlogin);
         pushButton_choose_building->setObjectName(QStringLiteral("pushButton_choose_building"));
-        pushButton_choose_building->setGeometry(QRect(270, 360, 91, 23));
+        pushButton_choose_building->setGeometry(QRect(310, 370, 111, 31));
         layoutWidget = new QWidget(groupBoxlogin);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(21, 10, 241, 421));
+        layoutWidget->setGeometry(QRect(21, 10, 271, 461));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -145,6 +152,7 @@ public:
 
         lineEdit_telephone = new QLineEdit(layoutWidget);
         lineEdit_telephone->setObjectName(QStringLiteral("lineEdit_telephone"));
+        lineEdit_telephone->setEchoMode(QLineEdit::Normal);
         lineEdit_telephone->setDragEnabled(false);
 
         verticalLayout->addWidget(lineEdit_telephone);
@@ -255,15 +263,23 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
+        NewClientAccountForm->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(NewClientAccountForm);
+        menubar->setObjectName(QStringLiteral("menubar"));
+        menubar->setGeometry(QRect(0, 0, 464, 21));
+        NewClientAccountForm->setMenuBar(menubar);
+        statusbar = new QStatusBar(NewClientAccountForm);
+        statusbar->setObjectName(QStringLiteral("statusbar"));
+        NewClientAccountForm->setStatusBar(statusbar);
 
         retranslateUi(NewClientAccountForm);
 
         QMetaObject::connectSlotsByName(NewClientAccountForm);
     } // setupUi
 
-    void retranslateUi(QDialog *NewClientAccountForm)
+    void retranslateUi(QMainWindow *NewClientAccountForm)
     {
-        NewClientAccountForm->setWindowTitle(QApplication::translate("NewClientAccountForm", "Dialog", 0));
+        NewClientAccountForm->setWindowTitle(QApplication::translate("NewClientAccountForm", "MainWindow", 0));
         groupBoxlogin->setTitle(QString());
         pushButton_ok->setText(QApplication::translate("NewClientAccountForm", "Zatwierd\305\272", 0));
         label_places_involved->setText(QApplication::translate("NewClientAccountForm", "* Pola wymagane", 0));

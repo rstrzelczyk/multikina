@@ -1,16 +1,15 @@
 #ifndef EMPLOYEEDATAFORM_H
 #define EMPLOYEEDATAFORM_H
 
-#include <QDialog>
-
+#include <QMainWindow>
 #include "employee.h"
-#include "cinemabuildingrepertoirschedule.h"
+#include "schedulewindow.h"
 
 namespace Ui {
 class EmployeeDataForm;
 }
 
-class EmployeeDataForm : public QDialog
+class EmployeeDataForm : public QMainWindow
 {
     Q_OBJECT
 
@@ -21,11 +20,11 @@ public:
     ~EmployeeDataForm();
     
 private slots:
-    void on_pushButton_back_clicked();
+    void on_pushButton_logout_2_clicked();
 
-    void on_pushButtonlog_in_3_clicked();
+    void on_pushButton_back_2_clicked();
 
-    void on_pushButton_logout_clicked();
+    void on_pushButtonlog_in_4_clicked();
 
 private:
     Ui::EmployeeDataForm *ui;

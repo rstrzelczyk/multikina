@@ -7,26 +7,26 @@
 #include <cstdlib>
 #include<QChar>
 
-NewClientAccountForm::NewClientAccountForm(QString building, Employee *e, QWidget *parent) :
-    QDialog(parent),
+NewClientAccountForm::NewClientAccountForm(QString building, Employee *e,QWidget *parent) :
+    QMainWindow(parent),
     ui(new Ui::NewClientAccountForm)
 {
     ui->setupUi(this);
-
     setWindowTitle(tr("Multikina"));
-
-    ui->pushButton_ok->setEnabled(false);
+    //ui->pushButton_ok->setEnabled(false);
 
     connect(ui->lineEdit_telephone, SIGNAL(textChanged(QString)), this, SLOT(isValidPhoneNumberFormat()));
     connect(ui->label_email, SIGNAL(textChanged()), this, SLOT(isValidEmailFormat()));
     connect(ui->lineEdit_password_2, SIGNAL(textChanged(QString)), this, SLOT (isValidPasswordFormat()));
     connect(ui->lineEdit_confirnpassword, SIGNAL(textChanged(QString)),this, SLOT (isPassword2SameAsPassword()));
 
-   // connect(ui->lineEdit_telephone, SIGNAL(textChanged(QString)), this, SLOT(AllObligatoryDataWritten()));
-   // connect(ui->label_email, SIGNAL(textChanged()), this, SLOT(AllObligatoryDataWritten()));
-   // connect(ui->lineEdit_password_2, SIGNAL(textChanged(QString)), this, SLOT (AllObligatoryDataWritten()));
-   // connect(ui->lineEdit_confirnpassword, SIGNAL(textChanged(QString)),this, SLOT (AllObligatoryDataWritten()));
+       // connect(ui->lineEdit_telephone, SIGNAL(textChanged(QString)), this, SLOT(AllObligatoryDataWritten()));
+       // connect(ui->label_email, SIGNAL(textChanged()), this, SLOT(AllObligatoryDataWritten()));
+       // connect(ui->lineEdit_password_2, SIGNAL(textChanged(QString)), this, SLOT (AllObligatoryDataWritten()));
+       // connect(ui->lineEdit_confirnpassword, SIGNAL(textChanged(QString)),this, SLOT (AllObligatoryDataWritten()));
 
+    ui->pushButton_senior_discount->setEnabled(true);
+    ui->pushButton_confitm_student_discount->setEnabled(true);
     ui->lineEdit_building->setText(building);
     ui->lineEdit_validtelephone->setStyleSheet("color: red");
     ui->lineEdit_validtelephone->setVisible((false));
@@ -36,7 +36,6 @@ NewClientAccountForm::NewClientAccountForm(QString building, Employee *e, QWidge
     ui->lineEdit_validpass->setVisible((false));
     ui->lineEdit_validpass2->setStyleSheet("color: red");
     ui->lineEdit_validpass2->setVisible((false));
-
     ui->lineEdit_building->setText(building);
 }
 
@@ -45,33 +44,34 @@ NewClientAccountForm::~NewClientAccountForm()
     delete ui;
 }
 
-void NewClientAccountForm::setDefaultValues()
+void NewClientAccountForm::on_pushButton_ok_clicked()
 {
-    ui->pushButton_ok->setEnabled(true);
+
 }
 
-bool NewClientAccountForm::AllObligatoryDataWritten()
+void NewClientAccountForm::on_pushButton_choose_building_clicked()
 {
-    if (ui->lineEdit_name->text().isEmpty() || ui->lineEdit_surname->text().isEmpty() || ui->lineEdit_telephone->text().isEmpty() || ui->lineEdit_email->text().isEmpty() ||
-            ui->lineEdit_password_2->text().isEmpty() || ui->lineEdit_confirnpassword->text().isEmpty())
-    {
-        ui->pushButton_ok->setEnabled(false);
-        return false;
-    }
-    else
-    {
-       if(isValidPasswordFormat() && isValidPhoneNumberFormat()&& isValidEmailFormat()&& isPassword2SameAsPassword())
-       {
-           ui->pushButton_ok->setEnabled(true);
-           return true;
-        }
-       else
-       {
-            ui->pushButton_ok->setEnabled(false);
-            return false;
-       }
-    }
+
 }
+
+void NewClientAccountForm::on_pushButton_confitm_student_discount_clicked()
+{
+    ui->pushButton_senior_discount->setEnabled(false);
+}
+
+void NewClientAccountForm::on_pushButton_senior_discount_clicked()
+{
+    ui->pushButton_confitm_student_discount->setEnabled(false);
+}
+
+
+
+
+
+
+
+
+
 
 bool NewClientAccountForm::isValidPasswordFormat()
 {
@@ -135,37 +135,15 @@ bool NewClientAccountForm::isValidPhoneNumberFormat()
     }
 }
 
-bool NewClientAccountForm::isValidEmailFormat()
-{
-    return false;
-}
-
-//bool NewClientAccountForm::isEmailUsed()
+//bool NewClientAccountForm::isValidEmailFormat()
 //{
-  //  return false;
+ //   return false;
 //}
 
-void NewClientAccountForm::on_pushButton_senior_discount_clicked()
-{
-    ui->pushButton_confitm_student_discount->setEnabled(false);
-}
 
-void NewClientAccountForm::on_pushButton_confitm_student_discount_clicked()
-{
-    ui->pushButton_senior_discount->setEnabled(false);
-}
 
-void NewClientAccountForm::on_pushButton_choose_building_clicked()
-{
-    BuildingList *buildinglist = new BuildingList();
-    buildinglist->exec();
-    delete buildinglist;
-}
 
-void NewClientAccountForm::on_pushButton_ok_clicked()
-{
-    ClientAccountForm *clientaccountform = new ClientAccountForm();
-    clientaccountform->exec();
-    delete clientaccountform;
-    NewClientAccountForm::close();
-}
+
+
+
+

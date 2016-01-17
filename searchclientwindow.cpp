@@ -1,94 +1,162 @@
 #include "searchclientwindow.h"
 #include "ui_searchclientwindow.h"
 
-#include<limits>
-
 SearchClientWindow::SearchClientWindow(Employee *e, QWidget *parent) :
-    QDialog(parent),
+    QMainWindow(parent),
     ui(new Ui::SearchClientWindow)
 {
     ui->setupUi(this);
-
     employee = e;
-
     setWindowTitle(tr("Multikina"));
-
     QPixmap pix (":/logo/prefix1/images/logo");
     ui->label_logo->setPixmap(pix);
-
     ui->pushButton_back->setStyleSheet("background-image: url(:/logo/prefix1/images/back)");
-
     ui->label_user_2->setText("Kasjer: "+employee->getUsername());
-
-    ClientRepository CR;
-    QSqlQueryModel *model = new QSqlQueryModel;
-    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel;
-    QString sql_select = CR.ShowClientList();
-
-    model->setQuery(sql_select);
-    model->setHeaderData(0, Qt::Horizontal, tr("email"));
-    model->setHeaderData(1, Qt::Horizontal, tr("Nazwisko"));
-    model->setHeaderData(2, Qt::Horizontal, tr("Imię"));
-
-    ui->tableView_search_client->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
-    ui->tableView_search_client->setSortingEnabled(true);
-
-    proxyModel->setSourceModel( model );
-    ui->tableView_search_client->setModel( proxyModel );
-
-    connect(ui->lineEdit_search, SIGNAL(textChanged(QString)), this, SLOT(searchClient()));
-    //connect(filterPatternLineEdit, SIGNAL(textChanged(QString)),
-             // this, SLOT(textFilterChanged()));
+    if(ui->lineEdit_searchemail->text().isEmpty()&&ui->lineEdit_searchname->text().isEmpty()&&ui->lineEdit_searchsurname->text().isEmpty())
+    {
+        showAllClients();
+    }
 }
-
 SearchClientWindow::~SearchClientWindow()
 {
     delete ui;
 }
-
-//QList SearchClientWindow::searchClient()
-//{
-
-//}
-
-void SearchClientWindow::searchClient()
+void SearchClientWindow::showAllClients()
 {
-    //QRegExp regExp(ui->lineEdit_search->text());
-    //proxyModel->setFilterRegExp(regExp);
+    ClientRepository CR;
+    QSqlQueryModel *model = new QSqlQueryModel;
+    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel;
+    QString sql_select = CR.ShowClientList();
+    model->setQuery(sql_select);
+    model->setHeaderData(0, Qt::Horizontal, tr("email"));
+    model->setHeaderData(1, Qt::Horizontal, tr("Nazwisko"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Imię"));
+    ui->tableView_search_client->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_search_client->setSortingEnabled(true);
+    proxyModel->setSourceModel( model );
+    ui->tableView_search_client->setModel( proxyModel );
+    ui->tableView_search_client->setColumnHidden(3, true);
+    ui->tableView_search_client->setColumnHidden(4, true);
+    ui->tableView_search_client->setColumnHidden(5, true);
+    ui->tableView_search_client->setColumnHidden(6, true);
+    //QModelIndex index=ui->tableView_search_client->currentIndex();
+    //ui->lineEdit_searchsurname->setText(model->record(index.row()).value(2).toString());
 }
-
 void SearchClientWindow::on_pushButton_back_clicked()
 {
     SearchClientWindow::close();
-    CinemaBuildingRepertoirSchedule *cinemabuildingrepertoirschedule = new CinemaBuildingRepertoirSchedule(employee);
-    cinemabuildingrepertoirschedule->open();
+    AccountManager am;
+    am.showScheduleWindow(employee);
 }
 
 void SearchClientWindow::on_pushButton_logout_clicked()
 {
     SearchClientWindow::close();
-    CinemaBuildingRepertoirSchedule *cbrs;
-    cbrs->log_out();
+    AccountManager am;
+    am.show();
 }
 
-//void SearchClientWindow::on_tableWidget_searchclient_clicked(const QModelIndex &index)
-//{
-    //ClientAccountForm *clientaccountform = new ClientAccountForm();
-    //clientaccountform->exec();
-    //delete clientaccountform;
-//}
-
-void SearchClientWindow::on_tableView_search_client_activated(const QModelIndex &index)
+void SearchClientWindow::on_lineEdit_searchemail_textChanged(const QString &arg1)
 {
-    QString selectedclient=ui->tableView_search_client->model()->data(index).toString();
-    //QString selectedclient=ui->tableView_search_client->model()->data(ui->tableView_search_client->model()->(1,1)).toString();
-    if(index.column()==0)
+    QString username = ui->lineEdit_searchemail->text();
+    QString name = ui->lineEdit_searchname->text();
+    QString surname = ui->lineEdit_searchsurname->text();
+    QList<Client*> Clients;
+    if(ui->lineEdit_searchemail->text().isEmpty()&&ui->lineEdit_searchname->text().isEmpty()&&ui->lineEdit_searchsurname->text().isEmpty())
     {
-        ui->lineEdit_search->setText(selectedclient);
-     }
+        showAllClients();
+    }
     else
     {
-        ui->lineEdit_search->setText("xxxxxxx");
-     }
+        QSqlQueryModel *model = new QSqlQueryModel;
+        QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel;
+        ClientRepository CR;
+        QString sql_select = CR.searchClient(username, name, surname);
+        model->setQuery(sql_select);
+        model->setHeaderData(0, Qt::Horizontal, tr("email"));
+        model->setHeaderData(1, Qt::Horizontal, tr("Nazwisko"));
+        model->setHeaderData(2, Qt::Horizontal, tr("Imię"));
+        ui->tableView_search_client->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_search_client->setSortingEnabled(true);
+        proxyModel->setSourceModel( model );
+        ui->tableView_search_client->setModel( proxyModel );
+        ui->tableView_search_client->setColumnHidden(3, true);
+        ui->tableView_search_client->setColumnHidden(4, true);
+        ui->tableView_search_client->setColumnHidden(5, true);
+        ui->tableView_search_client->setColumnHidden(6, true);
+    }
+}
+void SearchClientWindow::on_lineEdit_searchname_textChanged(const QString &arg1)
+{
+    QString username = ui->lineEdit_searchemail->text();
+    QString name = ui->lineEdit_searchname->text();
+    QString surname = ui->lineEdit_searchsurname->text();
+    QList<Client*> Clients;
+    if(ui->lineEdit_searchemail->text().isEmpty()&&ui->lineEdit_searchname->text().isEmpty()&&ui->lineEdit_searchsurname->text().isEmpty())
+    {
+        showAllClients();
+    }
+    else
+    {
+        QSqlQueryModel *model = new QSqlQueryModel;
+        QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel;
+        ClientRepository CR;
+        QString sql_select = CR.searchClient2(username, name, surname);
+        model->setQuery(sql_select);
+        model->setHeaderData(0, Qt::Horizontal, tr("email"));
+        model->setHeaderData(1, Qt::Horizontal, tr("Nazwisko"));
+        model->setHeaderData(2, Qt::Horizontal, tr("Imię"));
+        ui->tableView_search_client->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_search_client->setSortingEnabled(true);
+        proxyModel->setSourceModel( model );
+        ui->tableView_search_client->setModel( proxyModel );
+        ui->tableView_search_client->setColumnHidden(3, true);
+        ui->tableView_search_client->setColumnHidden(4, true);
+        ui->tableView_search_client->setColumnHidden(5, true);
+        ui->tableView_search_client->setColumnHidden(6, true);
+    }
+}
+
+void SearchClientWindow::on_lineEdit_searchsurname_textChanged(const QString &arg1)
+{
+    QString username = ui->lineEdit_searchemail->text();
+    QString name = ui->lineEdit_searchname->text();
+    QString surname = ui->lineEdit_searchsurname->text();
+    QList<Client*> Clients;
+    if(ui->lineEdit_searchemail->text().isEmpty()&&ui->lineEdit_searchname->text().isEmpty()&&ui->lineEdit_searchsurname->text().isEmpty())
+    {
+        showAllClients();
+    }
+    else
+    {
+        QSqlQueryModel *model = new QSqlQueryModel;
+        QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel;
+        ClientRepository CR;
+        QString sql_select = CR.searchClient3(username, name, surname);
+        model->setQuery(sql_select);
+        model->setHeaderData(0, Qt::Horizontal, tr("email"));
+        model->setHeaderData(1, Qt::Horizontal, tr("Nazwisko"));
+        model->setHeaderData(2, Qt::Horizontal, tr("Imię"));
+        ui->tableView_search_client->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_search_client->setSortingEnabled(true);
+        proxyModel->setSourceModel( model );
+        ui->tableView_search_client->setModel( proxyModel );
+        ui->tableView_search_client->setColumnHidden(3, true);
+        ui->tableView_search_client->setColumnHidden(4, true);
+        ui->tableView_search_client->setColumnHidden(5, true);
+        ui->tableView_search_client->setColumnHidden(6, true);
+    }
+}
+
+void SearchClientWindow::on_tableView_search_client_doubleClicked(const QModelIndex &index)
+{
+    //ui->tableView_search_client->model()->setData(index, QColor(Qt::darkGreen), Qt::BackgroundColorRole);
+    // for(int i = 0; i < model2->rowCount(); ++i)
+    //{
+    //ui->li->setText(model2->record(i).value(2).toString());
+    // }   
+    int row=index.row();
+    SearchClientWindow::close();
+    ClientAccauntForm *clientaccountform = new ClientAccauntForm(employee, row);
+    clientaccountform->show();
 }
