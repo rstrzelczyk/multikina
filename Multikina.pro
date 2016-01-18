@@ -33,7 +33,26 @@ SOURCES += \
     seance.cpp \
     newclientaccountform.cpp \
     clientaccauntform.cpp \
-    reservationwindow.cpp
+    reservationwindow.cpp \
+    time.cpp \
+    ticketmanager.cpp \
+    ticket.cpp \
+    seatsschedule.cpp \
+    seat.cpp \
+    reservationticketoffice.cpp \
+    reservationclass.cpp \
+    repertoir.cpp \
+    payment.cpp \
+    numberreservedtickets.cpp \
+    discount.cpp \
+    date.cpp \
+    cinemaroom.cpp \
+    chain.cpp \
+    cardscanwindow.cpp \
+    cardloadwindow.cpp \
+    card.cpp \
+    orderinformation.cpp \
+    ordervalidationticketoffice.cpp
 
 HEADERS  += \
     accountmanager.h \
@@ -54,7 +73,26 @@ HEADERS  += \
     seance.h \
     newclientaccountform.h \
     clientaccauntform.h \
-    reservationwindow.h
+    reservationwindow.h \
+    time.h \
+    ticketmanager.h \
+    ticket.h \
+    seatsschedule.h \
+    seat.h \
+    reservationticketoffice.h \
+    reservationclass.h \
+    repertoir.h \
+    payment.h \
+    numberreservedtickets.h \
+    discount.h \
+    date.h \
+    cinemaroom.h \
+    chain.h \
+    cardscanwindow.h \
+    cardloadwindow.h \
+    card.h \
+    orderinformation.h \
+    ordervalidationticketoffice.h
 
 FORMS    += \
     loginwindow.ui \
@@ -66,7 +104,15 @@ FORMS    += \
     buildinglist.ui \
     newclientaccountform.ui \
     clientaccauntform.ui \
-    reservationwindow.ui
+    reservationwindow.ui \
+    seatsschedule.ui \
+    reservationticketoffice.ui \
+    payment.ui \
+    ordervalidationticketoffice.ui \
+    orderinformation.ui \
+    numberreservedtickets.ui \
+    cardscanwindow.ui \
+    cardloadwindow.ui
 
 RESOURCES += \
     logo.qrc

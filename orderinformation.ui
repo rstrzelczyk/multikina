@@ -118,7 +118,7 @@
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>Film 1 </string>
        </property>
       </widget>
      </item>
@@ -130,7 +130,7 @@
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>19.00</string>
        </property>
       </widget>
      </item>
@@ -142,7 +142,7 @@
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>Budynek 1</string>
        </property>
       </widget>
      </item>
@@ -178,7 +178,7 @@
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>5</string>
        </property>
       </widget>
      </item>
@@ -274,7 +274,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Niezalogowany</string>
+        <string>kowalski</string>
        </property>
       </widget>
      </item>
@@ -297,7 +297,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;-</string>
+     <string/>
     </property>
    </widget>
   </widget>

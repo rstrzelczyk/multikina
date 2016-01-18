@@ -65,6 +65,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_senior_discount;
     QPushButton *pushButton_confitm_student_discount;
+    QLineEdit *lineEdit_validemail_format;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -263,6 +264,11 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
+        lineEdit_validemail_format = new QLineEdit(groupBoxlogin);
+        lineEdit_validemail_format->setObjectName(QStringLiteral("lineEdit_validemail_format"));
+        lineEdit_validemail_format->setGeometry(QRect(240, 190, 131, 20));
+        lineEdit_validemail_format->setFont(font2);
+        lineEdit_validemail_format->setReadOnly(true);
         NewClientAccountForm->setCentralWidget(centralwidget);
         menubar = new QMenuBar(NewClientAccountForm);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -298,6 +304,7 @@ public:
         label_discount->setText(QApplication::translate("NewClientAccountForm", "Zni\305\274ka", 0));
         pushButton_senior_discount->setText(QApplication::translate("NewClientAccountForm", "Seniorska", 0));
         pushButton_confitm_student_discount->setText(QApplication::translate("NewClientAccountForm", "Studencka", 0));
+        lineEdit_validemail_format->setText(QApplication::translate("NewClientAccountForm", "Niepoprawny format danych.", 0));
     } // retranslateUi
 
 };

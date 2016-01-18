@@ -15,7 +15,7 @@ class Employee
 public:
     Building *building;
 
-    Employee(QString name, QString surname, QString username, QString password);
+    Employee(QString name, QString surname, QString username, QString password, Building *building);
 
     QString getName();
     QString getSurname();

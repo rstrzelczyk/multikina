@@ -156,7 +156,7 @@ void SearchClientWindow::on_tableView_search_client_doubleClicked(const QModelIn
     //ui->li->setText(model2->record(i).value(2).toString());
     // }   
     int row=index.row();
-    SearchClientWindow::close();
-    ClientAccauntForm *clientaccountform = new ClientAccauntForm(employee, row);
-    clientaccountform->show();
+    //SearchClientWindow::close();
+   // ClientAccauntForm *clientaccountform = new ClientAccauntForm(c,b,employee,"", row);
+    //clientaccountform->show();
 }

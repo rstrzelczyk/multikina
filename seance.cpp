@@ -1,5 +1,6 @@
 #include "seance.h"
 
-Seance::Seance()
+Seance::Seance(QString title, QString date, QString time, CinemaRoom *room)
 {
+
 }

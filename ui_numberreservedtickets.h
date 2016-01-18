@@ -259,7 +259,7 @@ public:
         pushButton_cancel_2->setText(QApplication::translate("NumberReservedTickets", "Powr\303\263t do ekranu g\305\202\303\263wnego", 0));
         groupBox_menu->setTitle(QString());
         label_logo_4->setText(QString());
-        label_user_5->setText(QString());
+        label_user_5->setText(QApplication::translate("NumberReservedTickets", "kowalski", 0));
         pushButton_logout_2->setText(QApplication::translate("NumberReservedTickets", "Wyloguj", 0));
         pushButton_back_2->setText(QString());
         groupBoxlogin->setTitle(QString());
@@ -271,15 +271,18 @@ public:
         label->setText(QString());
         label_n->setText(QApplication::translate("NumberReservedTickets", "Bilety normalne", 0));
         pushButton_minus_normal->setText(QApplication::translate("NumberReservedTickets", "-", 0));
+        lineEdit_number_normal->setText(QApplication::translate("NumberReservedTickets", "0", 0));
         pushButton_plus_normal->setText(QApplication::translate("NumberReservedTickets", "+", 0));
         label_number_student_ticket->setText(QApplication::translate("NumberReservedTickets", "Bilety ze zni\305\274k\304\205 studenck\304\205:", 0));
         pushButton_minus_student->setText(QApplication::translate("NumberReservedTickets", "-", 0));
+        lineEdit_number_student->setText(QApplication::translate("NumberReservedTickets", "0", 0));
         pushButton_plus_student->setText(QApplication::translate("NumberReservedTickets", "+", 0));
         label_allticketsprice_3->setText(QApplication::translate("NumberReservedTickets", "Bilety ze zni\305\274k\304\205 seniora:", 0));
         pushButton_minus_senior->setText(QApplication::translate("NumberReservedTickets", "-", 0));
+        lineEdit_number_senior->setText(QApplication::translate("NumberReservedTickets", "0", 0));
         pushButton_plus_senio->setText(QApplication::translate("NumberReservedTickets", "+", 0));
         label_total_price->setText(QApplication::translate("NumberReservedTickets", "Cena bilet\303\263w:", 0));
-        label_total_price_2->setText(QApplication::translate("NumberReservedTickets", "Cena bilet\303\263w:", 0));
+        label_total_price_2->setText(QString());
     } // retranslateUi
 
 };

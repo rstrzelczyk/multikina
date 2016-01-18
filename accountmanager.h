@@ -12,21 +12,25 @@
 #include "searchclientwindow.h"
 #include "newclientaccountform.h"
 #include "reservationwindow.h"
+#include "numberreservedtickets.h"
 
 //#include "employee.h"
 //#include "client.h"
 //#include "clientrepository.h"
 //#include "reservation.h"
-//#include "numberreservedtickets.h"
 
+class LoginWindow;
+class NewClientAccountForm;
 class AccountManager
 {
     //Building *building;
-
-    //Client *client;
+    Employee* employee;
+    Client *client;
     //ClientRepository *clientrepository;
     //EmployeeRepository *employeerepository;
-
+private:
+    LoginWindow* loginWindow;
+    NewClientAccountForm *newclientaccountform;
 public:
     AccountManager();
     ~AccountManager();
@@ -37,16 +41,16 @@ public:
     void ShowEmployeeDataForm(Employee *e);
     void showScheduleWindow(Employee *e);
     void ShowSearchclientwindow(Employee *e);
-    void ShowNewAccountForm(Employee *e, QString building);
+    void ShowNewAccountForm();
     void ShowReservation(Employee *e);
+    bool checkEmailExists(QString email);
+    void ShowNumberReservedTickets(Employee *e);
 
     //void runprogram(QString name, QString surname, QString username, QString password);
     //bool log_in (QString &name, QString &surname, QString &username, QString &password);
     //void log_out();
 
 
-
-    //void ShowNumberReservedTickets();
 };
 
 #endif // ACCOUNTMANAGER_H

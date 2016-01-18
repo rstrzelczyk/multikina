@@ -30,7 +30,7 @@ bool EmployeeRepository::findEmployee(QString username, QString password)
         return false;
     }
 }
-Employee EmployeeRepository::getEmployee(QString username)
+Employee *EmployeeRepository::getEmployee(QString username)
 {
     QString name;
     QString surname;
@@ -56,11 +56,11 @@ Employee EmployeeRepository::getEmployee(QString username)
             city = sqlquery.value(6).toString();
          }
     }
-    //building = new Building(city,cinemaname,street);
-    //BuildingRepository BR;
-    //Schedule schedule =
-    //BR.getSchedule(building);
-    Employee employee = Employee(name,surname,username,password);
+    Building* building = new Building(city,cinemaname,street);
+    BuildingRepository BR;
+    Schedule *schedule = BR.getSchedule(building);
+    building->setSchedule(schedule);
+    Employee *employee = new Employee(name,surname,username,password,building);
     return employee;
 }
 void EmployeeRepository::changePassword(QString username, QString newpassword)

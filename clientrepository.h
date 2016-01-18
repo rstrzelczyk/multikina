@@ -22,6 +22,8 @@ public:
     QString searchClient3(QString username, QString name, QString surname);
     QString ShowClientList();
     QString ShowReservationList();
+    bool isEmailUsed(QString email);
+    void save(Client *client, Building *build, QString discount);
 };
 
 #endif // CLIENTREPOSITORY_H

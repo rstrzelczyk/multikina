@@ -26,7 +26,7 @@ public:
     ~EmployeeRepository();
 
     bool findEmployee(QString username,QString password);
-    Employee getEmployee(QString username);
+    Employee* getEmployee(QString username);
     void changePassword(QString username, QString newpassword);
     QString findbuilding(QString username, QString password);
     QString refreshscheduleotherdays(QString building, QString date);

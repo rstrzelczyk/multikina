@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 
-#include"accountmanager.h"
-
+#include "accountmanager.h"
+class AccountManager;
 namespace Ui {
 class LoginWindow;
 }
@@ -14,7 +14,7 @@ class LoginWindow : public QMainWindow
     Q_OBJECT
     
 public:
-    explicit LoginWindow(QWidget *parent = 0);
+    explicit LoginWindow(AccountManager* am,QWidget *parent = 0);
     ~LoginWindow();
     
 private slots:
@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::LoginWindow *ui;
+    AccountManager* am;
 };
 
 #endif // LOGINWINDOW_H

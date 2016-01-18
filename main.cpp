@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
    database.open();
 
    AccountManager login;
-   login.show();
+   //login.show();
 
    return a.exec();
 }

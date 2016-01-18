@@ -72,3 +72,9 @@ void ReservationWindow::on_pushButton_refresh_clicked()
     proxyModel2->setSourceModel( model2 );
     ui->tableView_reservation->setModel( proxyModel2 );
 }
+void ReservationWindow::on_tableView_reservation_doubleClicked(const QModelIndex &index)
+{
+    ReservationWindow::close();
+    OrderInformation *oi = new OrderInformation(employee, 0, 0);
+    oi->show();
+}

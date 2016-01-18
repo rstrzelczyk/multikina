@@ -1,11 +1,12 @@
 #include "employee.h"
 
-Employee::Employee(QString name, QString surname, QString username, QString password)
+Employee::Employee(QString name, QString surname, QString username, QString password, Building *building)
 {
     this->name = name;
     this->surname = surname;
     this->username = username;
     this->password = password;
+    this->building = building;
 }
 
 QString Employee::getName()

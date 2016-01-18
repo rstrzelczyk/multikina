@@ -40,3 +40,31 @@ QString ClientRepository::ShowReservationList()
     sql_select2 += "   ORDER BY rezerwacja.idRezerwacja";
     return sql_select2;
 }
+bool ClientRepository::isEmailUsed(QString email)
+{
+    QString query = "SELECT email FROM klient WHERE email=\'" + email + "\'";
+    QSqlQuery sqlquery;
+    if(sqlquery.exec(query))
+    {
+        if(sqlquery.next())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+void ClientRepository::save(Client *client, Building *build, QString discount)
+{
+   // QString query = "INSERT INTO `klient` ( `imie`, `nazwisko`, `email`, `telefon`, `haslo`, `Status_konta`, `budynek`, `znizka`) VALUES ('"+client.get+"', '"++"', '"++"', '"++"', '"++"', '"++"',, '"++"',, '"++"');
+
+
+
+   // QSqlQuery sqlquery;
+}

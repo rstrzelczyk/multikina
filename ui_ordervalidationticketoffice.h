@@ -139,16 +139,16 @@ public:
         OrderValidationTicketOffice->setWindowTitle(QApplication::translate("OrderValidationTicketOffice", "Dialog", 0));
         groupBoxlogin->setTitle(QString());
         label_number_order->setText(QApplication::translate("OrderValidationTicketOffice", "Nr zam\303\263wienia", 0));
-        label_number_order_2->setText(QString());
+        label_number_order_2->setText(QApplication::translate("OrderValidationTicketOffice", "           5", 0));
         label_state->setText(QApplication::translate("OrderValidationTicketOffice", "Status p\305\202atno\305\233ci:", 0));
-        label_state_2->setText(QString());
+        label_state_2->setText(QApplication::translate("OrderValidationTicketOffice", "         Zap\305\202acono", 0));
         label->setText(QString());
         pushButton_finish_2->setText(QApplication::translate("OrderValidationTicketOffice", "Koniec", 0));
         groupBox_menu->setTitle(QString());
         label_logo_5->setText(QString());
-        label_user_6->setText(QApplication::translate("OrderValidationTicketOffice", "Niezalogowany", 0));
+        label_user_6->setText(QApplication::translate("OrderValidationTicketOffice", "Kowalski", 0));
         pushButton_logout_3->setText(QApplication::translate("OrderValidationTicketOffice", "Wyloguj", 0));
-        pushButton_back_3->setText(QApplication::translate("OrderValidationTicketOffice", "<-", 0));
+        pushButton_back_3->setText(QString());
     } // retranslateUi
 
 };

@@ -2,7 +2,9 @@
 
 AccountManager::AccountManager()
 {
-
+    loginWindow=new LoginWindow(this);
+    loginWindow->show();
+    newclientaccountform = new NewClientAccountForm();
 }
 AccountManager::~AccountManager()
 {
@@ -10,8 +12,8 @@ AccountManager::~AccountManager()
 }
 void AccountManager::show()
 {
-    LoginWindow *loginwindow=new LoginWindow();
-    loginwindow->show();
+    //loginWindow=new LoginWindow(this);
+    loginWindow->show();
 }
 void AccountManager::show2()
 {
@@ -20,8 +22,9 @@ void AccountManager::show2()
 }
 void AccountManager::showScheduleWindow(Employee *e)
 {
-    ScheduleWindow *schedulewindow=new ScheduleWindow(e);
+    ScheduleWindow *schedulewindow=new ScheduleWindow(this,e);
     schedulewindow->show();
+    loginWindow->hide();
 }
 bool AccountManager::login(QString username, QString password)
 {
@@ -33,10 +36,11 @@ bool AccountManager::login(QString username, QString password)
     else
     {
         EmployeeRepository ER;
-        Employee employee = ER.getEmployee(username);
-        Employee *e = new Employee(employee.getName(), employee.getSurname(), employee.getUsername(), employee.getPassword());
-        ScheduleWindow *schedulewindow=new ScheduleWindow(e);
-        schedulewindow->show();
+        employee = ER.getEmployee(username);
+        showScheduleWindow(employee);
+        //ScheduleWindow *schedulewindow=new ScheduleWindow(this,employee);
+        //schedulewindow->show();
+        loginWindow->hide();
         return true;
     }
 }
@@ -50,10 +54,10 @@ void AccountManager::ShowSearchclientwindow(Employee *e)
     SearchClientWindow *searchclientwindow = new SearchClientWindow(e);
     searchclientwindow->show();
 }
-void AccountManager::ShowNewAccountForm(Employee *e, QString building)
+void AccountManager::ShowNewAccountForm()
 {
-    NewClientAccountForm *newclientaccountform = new NewClientAccountForm(building, e);
-    newclientaccountform->show();
+
+    newclientaccountform->showWindow(employee);
 }
 
 void AccountManager::ShowReservation(Employee *e)
@@ -61,3 +65,20 @@ void AccountManager::ShowReservation(Employee *e)
     ReservationWindow *reservationwindow = new ReservationWindow(e);
     reservationwindow->show();
 }
+bool AccountManager::checkEmailExists(QString email)
+{
+    ClientRepository CR;
+    if(CR.isEmailUsed(email))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+ void AccountManager::ShowNumberReservedTickets(Employee *e)
+ {
+     NumberReservedTickets *numberreservedtickets = new NumberReservedTickets(e);
+     numberreservedtickets->show();
+ }

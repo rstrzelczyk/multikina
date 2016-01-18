@@ -15,18 +15,36 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_CardLoadWindow
 {
 public:
+    QLineEdit *lineEdit;
+    QPushButton *pushButton;
+    QLabel *label;
 
     void setupUi(QDialog *CardLoadWindow)
     {
         if (CardLoadWindow->objectName().isEmpty())
             CardLoadWindow->setObjectName(QStringLiteral("CardLoadWindow"));
-        CardLoadWindow->resize(400, 300);
+        CardLoadWindow->resize(410, 234);
+        lineEdit = new QLineEdit(CardLoadWindow);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(70, 120, 261, 31));
+        pushButton = new QPushButton(CardLoadWindow);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(140, 170, 111, 31));
+        label = new QLabel(CardLoadWindow);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(120, 50, 181, 51));
+        QFont font;
+        font.setPointSize(12);
+        label->setFont(font);
 
         retranslateUi(CardLoadWindow);
 
@@ -36,6 +54,8 @@ public:
     void retranslateUi(QDialog *CardLoadWindow)
     {
         CardLoadWindow->setWindowTitle(QApplication::translate("CardLoadWindow", "Dialog", 0));
+        pushButton->setText(QApplication::translate("CardLoadWindow", "OK", 0));
+        label->setText(QApplication::translate("CardLoadWindow", "Wczytaj numer karty:", 0));
     } // retranslateUi
 
 };

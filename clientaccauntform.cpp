@@ -1,7 +1,7 @@
 #include "clientaccauntform.h"
 #include "ui_clientaccauntform.h"
 
-ClientAccauntForm::ClientAccauntForm(Employee *e, int row, QWidget *parent) :
+ClientAccauntForm::ClientAccauntForm(Client *c, Building *b, Employee *e, QString discount, QString state,  int row, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ClientAccauntForm)
 {
@@ -22,6 +22,28 @@ ClientAccauntForm::ClientAccauntForm(Employee *e, int row, QWidget *parent) :
     model->setHeaderData(1, Qt::Horizontal, tr("Nazwisko"));
     model->setHeaderData(2, Qt::Horizontal, tr("Imię"));
     proxyModel->setSourceModel( model );
+
+    ui->label_info_2->setText("Konto zostało utworzone.");
+    ui->lineEdit_name->setText(c->getName());
+    ui->lineEdit_surname->setText(c->getName());
+    ui->lineEdit_email->setText(c->getName());
+    ui->lineEdit_telephone->setText(c->getName());
+    ui->lineEdit_password_2->setText(c->getName());
+    ui->lineEdit_pconfirnpassword->setText(c->getName());
+    ui->lineEdit_building->setText(b->getCinemaname());
+    ui->lineEdit_discount->setText(discount);
+    if(state=="nieaktywny")
+    {
+        ui->pushButton_confim_account->setEnabled(true);
+        ui->pushButton_confitm_discount->setEnabled(false);
+        ui-> pushButton_add_card->setEnabled(false);
+    }
+    if(state=="aktywny")
+    {
+        ui->pushButton_confim_account->setEnabled(false);
+        ui->pushButton_confitm_discount->setEnabled(true);
+        ui-> pushButton_add_card->setEnabled(true);
+    }
 }
 
 ClientAccauntForm::~ClientAccauntForm()
@@ -41,4 +63,28 @@ void ClientAccauntForm::on_pushButton_logout_clicked()
     ClientAccauntForm::close();
     AccountManager am;
     am.show();
+}
+
+void ClientAccauntForm::on_pushButton_confim_account_clicked()
+{
+    ui->pushButton_confim_account->setEnabled(false);
+    ui->pushButton_confitm_discount->setEnabled(true);
+    ui-> pushButton_add_card->setEnabled(true);
+    ui->label_info_2->setText("Konto zostało potwierdzone.");
+}
+
+void ClientAccauntForm::on_pushButton_confitm_discount_clicked()
+{
+    ui->pushButton_confim_account->setEnabled(false);
+    ui->pushButton_confitm_discount->setEnabled(true);
+    ui-> pushButton_add_card->setEnabled(true);
+    ui->label_info_2->setText("Zniżka została potwierdzona.");
+}
+
+void ClientAccauntForm::on_pushButton_add_card_clicked()
+{
+    ui->pushButton_confim_account->setEnabled(false);
+    ui->pushButton_confitm_discount->setEnabled(true);
+    ui-> pushButton_add_card->setEnabled(false);
+    ui->label_info_2->setText("Karta została dodana.");
 }

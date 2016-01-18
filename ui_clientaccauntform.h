@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -49,7 +48,7 @@ public:
     QLabel *label_confirmpassword;
     QLineEdit *lineEdit_pconfirnpassword;
     QLabel *label_cinema_building;
-    QComboBox *comboBox_building;
+    QLineEdit *lineEdit_building;
     QLabel *label_discount;
     QLineEdit *lineEdit_discount;
     QWidget *layoutWidget;
@@ -140,6 +139,7 @@ public:
 
         lineEdit_password_2 = new QLineEdit(verticalLayoutWidget);
         lineEdit_password_2->setObjectName(QStringLiteral("lineEdit_password_2"));
+        lineEdit_password_2->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(lineEdit_password_2);
 
@@ -151,6 +151,7 @@ public:
 
         lineEdit_pconfirnpassword = new QLineEdit(verticalLayoutWidget);
         lineEdit_pconfirnpassword->setObjectName(QStringLiteral("lineEdit_pconfirnpassword"));
+        lineEdit_pconfirnpassword->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(lineEdit_pconfirnpassword);
 
@@ -160,10 +161,10 @@ public:
 
         verticalLayout->addWidget(label_cinema_building);
 
-        comboBox_building = new QComboBox(verticalLayoutWidget);
-        comboBox_building->setObjectName(QStringLiteral("comboBox_building"));
+        lineEdit_building = new QLineEdit(verticalLayoutWidget);
+        lineEdit_building->setObjectName(QStringLiteral("lineEdit_building"));
 
-        verticalLayout->addWidget(comboBox_building);
+        verticalLayout->addWidget(lineEdit_building);
 
         label_discount = new QLabel(verticalLayoutWidget);
         label_discount->setObjectName(QStringLiteral("label_discount"));
@@ -184,16 +185,19 @@ public:
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         pushButton_confim_account = new QPushButton(layoutWidget);
         pushButton_confim_account->setObjectName(QStringLiteral("pushButton_confim_account"));
+        pushButton_confim_account->setMinimumSize(QSize(0, 40));
 
         horizontalLayout_2->addWidget(pushButton_confim_account);
 
         pushButton_confitm_discount = new QPushButton(layoutWidget);
         pushButton_confitm_discount->setObjectName(QStringLiteral("pushButton_confitm_discount"));
+        pushButton_confitm_discount->setMinimumSize(QSize(0, 40));
 
         horizontalLayout_2->addWidget(pushButton_confitm_discount);
 
         pushButton_add_card = new QPushButton(layoutWidget);
         pushButton_add_card->setObjectName(QStringLiteral("pushButton_add_card"));
+        pushButton_add_card->setMinimumSize(QSize(0, 40));
 
         horizontalLayout_2->addWidget(pushButton_add_card);
 
@@ -202,7 +206,7 @@ public:
         groupBox_info->setGeometry(QRect(10, 670, 671, 51));
         label_info_2 = new QLabel(groupBox_info);
         label_info_2->setObjectName(QStringLiteral("label_info_2"));
-        label_info_2->setGeometry(QRect(180, 10, 291, 31));
+        label_info_2->setGeometry(QRect(220, 10, 291, 31));
         label_info_2->setFont(font);
         groupBox_menu = new QGroupBox(centralwidget);
         groupBox_menu->setObjectName(QStringLiteral("groupBox_menu"));

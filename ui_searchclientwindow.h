@@ -47,7 +47,6 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label_user_2;
     QPushButton *pushButton_logout;
-    QLineEdit *lineEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -123,9 +122,6 @@ public:
 
         horizontalLayout->addWidget(pushButton_logout);
 
-        lineEdit = new QLineEdit(groupBox_menu);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(400, 80, 113, 20));
         SearchClientWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(SearchClientWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
