@@ -38,6 +38,7 @@ INPUT(
 ./release\card.o
 ./release\orderinformation.o
 ./release\ordervalidationticketoffice.o
+./release\clientmanager.o
 ./release\qrc_logo.o
 ./release\moc_loginwindow.o
 ./release\moc_schedulewindow.o

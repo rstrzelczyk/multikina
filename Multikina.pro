@@ -52,7 +52,8 @@ SOURCES += \
     cardloadwindow.cpp \
     card.cpp \
     orderinformation.cpp \
-    ordervalidationticketoffice.cpp
+    ordervalidationticketoffice.cpp \
+    clientmanager.cpp
 
 HEADERS  += \
     accountmanager.h \
@@ -92,7 +93,8 @@ HEADERS  += \
     cardloadwindow.h \
     card.h \
     orderinformation.h \
-    ordervalidationticketoffice.h
+    ordervalidationticketoffice.h \
+    clientmanager.h
 
 FORMS    += \
     loginwindow.ui \

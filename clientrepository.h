@@ -7,7 +7,7 @@
 #include <QList>
 
 #include "client.h"
-
+class Client;
 class ClientRepository
 {
 public:
@@ -23,7 +23,8 @@ public:
     QString ShowClientList();
     QString ShowReservationList();
     bool isEmailUsed(QString email);
-    void save(Client *client, Building *build, QString discount);
+    //void save(Client *client, Building *build, QString discount);
+    void save(Client *client);
 };
 
 #endif // CLIENTREPOSITORY_H

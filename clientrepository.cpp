@@ -60,11 +60,17 @@ bool ClientRepository::isEmailUsed(QString email)
         return false;
     }
 }
-void ClientRepository::save(Client *client, Building *build, QString discount)
-{
+//void ClientRepository::save(Client *client, Building *build, QString discount)
+//{
    // QString query = "INSERT INTO `klient` ( `imie`, `nazwisko`, `email`, `telefon`, `haslo`, `Status_konta`, `budynek`, `znizka`) VALUES ('"+client.get+"', '"++"', '"++"', '"++"', '"++"', '"++"',, '"++"',, '"++"');
 
 
 
    // QSqlQuery sqlquery;
+//}
+void ClientRepository::save(Client *client)
+{
+    QString query = "UPDATE klient values (" + client->getName() + "," + client->getSurname() + client->getPassword() + "," + client->getEmail() + "," + client->getTelephonenumber()+ ", 'aktywny'";
+    QSqlQuery sqlquery;
+    sqlquery.exec(query);
 }

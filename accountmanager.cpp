@@ -4,7 +4,7 @@ AccountManager::AccountManager()
 {
     loginWindow=new LoginWindow(this);
     loginWindow->show();
-    newclientaccountform = new NewClientAccountForm();
+    newclientaccountform = new NewClientAccountForm(this);
 }
 AccountManager::~AccountManager()
 {

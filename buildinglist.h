@@ -7,7 +7,7 @@
 #include "buildingrepository.h"
 #include "building.h"
 #include "newclientaccountform.h"
-
+class NewClientAccountForm;
 namespace Ui {
 class BuildingList;
 }
@@ -17,10 +17,10 @@ class BuildingList : public QDialog
     Q_OBJECT
 
     QList<Building*> * Buildings;
-
+    NewClientAccountForm* form;
     
 public:
-    explicit BuildingList(QWidget *parent = 0);
+    explicit BuildingList(NewClientAccountForm* form,QWidget *parent = 0);
     ~BuildingList();
 
      QString buildingname;
@@ -28,11 +28,11 @@ public:
 private slots:
 
     void on_listWidget_clicked(const QModelIndex &index);
-
     void displayBuildings(QList<Building*>* buildings);
+    void on_listWidget_doubleClicked(const QModelIndex &index);
 
-    void on_tableView_clicked(const QModelIndex &index);
-
+signals:
+    void chosenBuilding(Building* buinding);
 private:
     Ui::BuildingList *ui;
 

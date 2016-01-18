@@ -38,6 +38,7 @@ INPUT(
 ./debug\card.o
 ./debug\orderinformation.o
 ./debug\ordervalidationticketoffice.o
+./debug\clientmanager.o
 ./debug\qrc_logo.o
 ./debug\moc_loginwindow.o
 ./debug\moc_schedulewindow.o

@@ -7,12 +7,14 @@
 #include <cstdlib>
 #include<QChar>
 
-NewClientAccountForm::NewClientAccountForm(QWidget *parent) :
+NewClientAccountForm::NewClientAccountForm(AccountManager *am, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NewClientAccountForm)
 {
+    this->am=am;
     ui->setupUi(this);
    // employee=e;
+   // connect(buildingListWindow,SIGNAL(chosenBuilding(Building*)),this,SLOT(setChoosenBuilding(Building*)));
     setWindowTitle(tr("Multikina"));    
     ui->pushButton_ok->setEnabled(false);
     ui->pushButton_senior_discount->setEnabled(true);
@@ -28,6 +30,9 @@ NewClientAccountForm::NewClientAccountForm(QWidget *parent) :
     ui->lineEdit_validpass->setVisible((false));
     ui->lineEdit_validpass2->setStyleSheet("color: red");
     ui->lineEdit_validpass2->setVisible((false));
+
+    //connect(buildingListWindow,SIGNAL(chosenBuilding(Building*)),this,SLOT(setChoosenBuilding(Building*)));
+
     //ui->lineEdit_building->setText(building);
 }
 
@@ -42,9 +47,9 @@ void NewClientAccountForm::on_pushButton_ok_clicked()
     QString name = ui->lineEdit_name->text();
     QString surname = ui->lineEdit_surname->text();
     QString email = ui->lineEdit_email->text();
-    int telephone = ui->lineEdit_telephone->text().toInt();
+    QString telephone = ui->lineEdit_telephone->text();
     QString password = ui->lineEdit_password_2->text();
-    QString building = ui->lineEdit_building->text();
+    //QString building = ui->lineEdit_building->text();
     if(!ui->pushButton_confitm_student_discount->isEnabled())
     {
         discount="senior";
@@ -53,28 +58,32 @@ void NewClientAccountForm::on_pushButton_ok_clicked()
     {
         discount="student";
     }
-    Client *client = new Client (name, surname, telephone, email, password);
-    Building *build = new Building ("",building,"");
 
-    ClientRepository CR;
-    CR.save(client, build, discount);
+    ClientManager::getInstance()->ConfirmClientAccount(name, surname,  telephone,  email,  password, building,  discount);
+    //Client *client = new Client (name, surname, telephone, email, password);
+    //Building *build = new Building ("",building,"");
 
-    QSqlQuery sqlquery;
-    QString query = "INSERT INTO `klient` ( `imie`, `nazwisko`, `email`, `telefon`, `haslo`, `Status_konta`, `budynek`, `znizka`) VALUES ('" + client->getName() + "', '"+ client->getSurname() +"', '"+ client->getEmail() +"', '"+ client->getTelephonenumber() +"', '"+ client->getPassword() +"', 'nieaktywny', '"+ build->getCinemaname() +"', '"+ discount +"')";
-    sqlquery.exec(query);
-    sqlquery.next();
+    //ClientRepository CR;
+    //CR.save(client);
 
-    NewClientAccountForm::close();
-    ClientAccauntForm *clientform = new ClientAccauntForm(client, build, employee, discount, "nieaktywny",0);
-    clientform->show();
+   // QSqlQuery sqlquery;
+    //QString query = "INSERT INTO `klient` ( `imie`, `nazwisko`, `email`, `telefon`, `haslo`, `Status_konta`, `budynek`, `znizka`) VALUES ('" + client->getName() + "', '"+ client->getSurname() +"', '"+ client->getEmail() +"', '"+ client->getTelephonenumber() +"', '"+ client->getPassword() +"', 'nieaktywny', '"+ build->getCinemaname() +"', '"+ discount +"')";
+    //sqlquery.exec(query);
+    //sqlquery.next();
+
+    //NewClientAccountForm::close();
+    //ClientAccauntForm *clientform = new ClientAccauntForm(client, build, employee, discount, "nieaktywny",0);
+    //clientform->show();
 
 }
 
 void NewClientAccountForm::on_pushButton_choose_building_clicked()
 {
-    BuildingList *buildinglist = new BuildingList();
-    buildinglist->exec();
-    delete buildinglist;
+    //BuildingList *buildinglist = new BuildingList();
+    //buildinglist->exec();
+    //delete buildinglist;
+    buildingListWindow=new BuildingList(this);
+    buildingListWindow->show();
 }
 
 void NewClientAccountForm::on_pushButton_confitm_student_discount_clicked()
@@ -189,8 +198,7 @@ bool NewClientAccountForm::isValidEmailFormat()
     if(numberchar==1&& (numberdots==1 || numberdots ==2))
     {
         ui->lineEdit_validemail_format->setVisible(false);
-        AccountManager AM;
-        if(AM.checkEmailExists(email))
+        if(am->checkEmailExists(email))
         {
             ui->lineEdit_validemail->setVisible(true);
             return false;
@@ -212,6 +220,13 @@ void NewClientAccountForm::on_lineEdit_password_2_textChanged(const QString &arg
 {
     isValidPasswordFormat();
     AllObligatoryDataWritten();
+}
+
+void NewClientAccountForm::setChoosenBuilding(Building *building)
+{
+    buildingListWindow->hide();
+    this->building=building;
+    ui->lineEdit_building->setText(building->getCinemaname());
 }
 void NewClientAccountForm::on_lineEdit_confirnpassword_textEdited(const QString &arg1)
 {
@@ -249,6 +264,7 @@ void NewClientAccountForm::on_lineEdit_email_editingFinished()
 }
 void NewClientAccountForm::setBuilding(Building *b)
 {
+    building=b;
     ui->lineEdit_building->setText(b->getCinemaname());
 }
 
