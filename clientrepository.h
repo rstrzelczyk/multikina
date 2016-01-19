@@ -4,18 +4,23 @@
 #include <QtSql>
 #include <QDebug>
 #include <QString>
+#include <QList>
+
+#include "client.h"
 
 class ClientRepository
 {
 public:
-    QSqlDatabase db;
-    QSqlQueryModel *qmodel;
+    //QSqlDatabase db;
+    //QSqlQueryModel *qmodel;
 
     ClientRepository();
     ~ClientRepository();
 
-    QString ShowClientList();
-    QString ShowReservationList();
+    QList<Client> searchClient(QString username, QString name, QString surname);
+
+    //QString ShowClientList();
+   //QString ShowReservationList();
 };
 
 #endif // CLIENTREPOSITORY_H

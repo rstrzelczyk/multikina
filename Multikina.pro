@@ -14,108 +14,52 @@ TARGET = Multikina
 TEMPLATE = app
 
 SOURCES += \
-    mainwindow.cpp \
-    main.cpp \
-    time.cpp \
-    ticketmanager.cpp \
-    ticket.cpp \
-    seatsschedule.cpp \
-    seat.cpp \
-    searchclientwindow.cpp \
-    seance.cpp \
-    schedule.cpp \
-    reservationticketoffice.cpp \
-    reservationclass.cpp \
-    reservation.cpp \
-    repertoir.cpp \
-    payment.cpp \
-    ordervalidationticketoffice.cpp \
-    orderinformation.cpp \
-    numberreservedtickets.cpp \
-    newclientaccountform.cpp \
-    movie.cpp \
-    employeerepository.cpp \
-    employeedataform.cpp \
-    employee.cpp \
-    discount.cpp \
-    date.cpp \
-    clientrepository.cpp \
-    clientaccountform.cpp \
-    client.cpp \
-    cinemaroom.cpp \
-    chain.cpp \
-    cardscanwindow.cpp \
-    cardloadwindow.cpp \
-    card.cpp \
-    calender.cpp \
-    buildinglist.cpp \
-    building.cpp \
     accountmanager.cpp \
-    cinemabuildingrepertoirschedule.cpp \
-    buildingrepository.cpp
+    main.cpp \
+    loginwindow.cpp \
+    employeerepository.cpp \
+    employee.cpp \
+    building.cpp \
+    schedule.cpp \
+    buildingrepository.cpp \
+    schedulewindow.cpp \
+    employeedataform.cpp \
+    calender.cpp \
+    loginwindow2.cpp \
+    searchclientwindow.cpp \
+    buildinglist.cpp \
+    clientrepository.cpp \
+    client.cpp \
+    seance.cpp
 
 HEADERS  += \
-    mainwindow.h \
-    time.h \
-    ticketmanager.h \
-    ticket.h \
-    seatsschedule.h \
-    seat.h \
-    searchclientwindow.h \
-    seance.h \
-    schedule.h \
-    reservationticketoffice.h \
-    reservationclass.h \
-    reservation.h \
-    repertoir.h \
-    payment.h \
-    ordervalidationticketoffice.h \
-    orderinformation.h \
-    numberreservedtickets.h \
-    newclientaccountform.h \
-    movie.h \
-    employeerepository.h \
-    employeedataform.h \
-    employee.h \
-    discount.h \
-    date.h \
-    clientrepository.h \
-    clientaccountform.h \
-    client.h \
-    cinemaroom.h \
-    chain.h \
-    cardscanwindow.h \
-    cardloadwindow.h \
-    card.h \
-    calender.h \
-    buildinglist.h \
-    building.h \
     accountmanager.h \
-    cinemabuildingrepertoirschedule.h \
-    buildingrepository.h
+    loginwindow.h \
+    employeerepository.h \
+    employee.h \
+    building.h \
+    schedule.h \
+    buildingrepository.h \
+    schedulewindow.h \
+    employeedataform.h \
+    calender.h \
+    loginwindow2.h \
+    searchclientwindow.h \
+    buildinglist.h \
+    clientrepository.h \
+    client.h \
+    seance.h
 
 FORMS    += \
-    mainwindow.ui \
-    seatsschedule.ui \
-    searchclientwindow.ui \
-    reservationticketoffice.ui \
-    reservation.ui \
-    payment.ui \
-    ordervalidationticketoffice.ui \
-    orderinformation.ui \
-    numberreservedtickets.ui \
-    newclientaccountform.ui \
+    loginwindow.ui \
+    schedulewindow.ui \
     employeedataform.ui \
-    clientaccountform.ui \
-    cardscanwindow.ui \
-    cardloadwindow.ui \
     calender.ui \
-    buildinglist.ui \
-    cinemabuildingrepertoirschedule.ui
+    loginwindow2.ui \
+    searchclientwindow.ui \
+    buildinglist.ui
 
 RESOURCES += \
     logo.qrc
 
-OTHER_FILES += \
-    object_script.Multikina.Release \
-    object_script.Multikina.Debug
+OTHER_FILES +=

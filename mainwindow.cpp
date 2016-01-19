@@ -19,28 +19,28 @@ MainWindow::~MainWindow()
 
 }
 
-void MainWindow::on_pushButtonlog_in_clicked()
-{
-    QString name = "";
-    QString surname= "";
-    QString username;
-    QString password;
+//void MainWindow::on_pushButtonlog_in_clicked()
+//{
+   // QString name = "";
+    //QString surname= "";
+    //QString username;
+    //QString password;
 
-    username = ui->lineEdit_login->text();
-    password = ui->lineEdit_password->text();
+   // username = ui->lineEdit_login->text();
+   // password = ui->lineEdit_password->text();
 
-    AccountManager accountmanager;
-    if (accountmanager.log_in (name, surname, username, password))
-    {
-        accountmanager.runprogram(name, surname, username, password);
-        ui->lineEdit_login->setText("");
-        ui->lineEdit_password->setText("");
-        ui->label_info->setText("");
-    }
-    else
-    {
-        ui->label_info->setText("Błędny login lub hasło.");
-        ui->lineEdit_password->setText("");
-    }
-}
+   // AccountManager accountmanager;
+   // if (accountmanager.log_in (name, surname, username, password))
+   // {
+     //   accountmanager.runprogram(name, surname, username, password);
+     //   ui->lineEdit_login->setText("");
+     //   ui->lineEdit_password->setText("");
+     //   ui->label_info->setText("");
+   // }
+   // else
+   // {
+        //ui->label_info->setText("Błędny login lub hasło.");
+        //ui->lineEdit_password->setText("");
+    //}
+//}
 

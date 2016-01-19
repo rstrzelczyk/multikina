@@ -2,19 +2,26 @@
 
 BuildingRepository::BuildingRepository()
 {
-    db = QSqlDatabase:: addDatabase ("QMYSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("multikina");
-    db.setUserName("root");
-    db.setPassword("");
+
 }
 
 BuildingRepository::~BuildingRepository()
 {
-    //db.close();
 }
 
-void BuildingRepository::getBuildingList2()
+void BuildingRepository::getSchedule(Building *building)
+{
+
+}
+
+
+
+
+
+
+
+
+/*void BuildingRepository::getBuildingList2()
 {
     if(db.open())
     {
@@ -38,7 +45,7 @@ QString BuildingRepository::getBuildingList()
     QString sql = "SELECT nazwabudynku, ulica, miasto FROM budynek ORDER BY budynek.nazwabudynku";
     return sql;
 }
-
+*/
 /*Client *new = new Client(ui->lineEdit_name->text(),
                         ui->lineEdit_surname->text(),
                         ui->comboBox_status->currentText(),

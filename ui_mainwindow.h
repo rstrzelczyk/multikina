@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -34,7 +35,7 @@ public:
     QWidget *centralWidget;
     QGroupBox *groupBoxlogin;
     QWidget *formLayoutWidget;
-    QFormLayout *formLayout;
+    QGridLayout *gridLayout;
     QLabel *label_login;
     QLineEdit *lineEdit_login;
     QLabel *label_password;
@@ -68,58 +69,57 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(532, 390);
+        MainWindow->resize(535, 396);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         groupBoxlogin = new QGroupBox(centralWidget);
         groupBoxlogin->setObjectName(QStringLiteral("groupBoxlogin"));
-        groupBoxlogin->setGeometry(QRect(10, 120, 511, 171));
+        groupBoxlogin->setGeometry(QRect(10, 120, 511, 161));
         formLayoutWidget = new QWidget(groupBoxlogin);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(80, 50, 351, 91));
-        formLayout = new QFormLayout(formLayoutWidget);
-        formLayout->setSpacing(6);
-        formLayout->setContentsMargins(11, 11, 11, 11);
-        formLayout->setObjectName(QStringLiteral("formLayout"));
-        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
-        formLayout->setContentsMargins(0, 0, 0, 0);
+        formLayoutWidget->setGeometry(QRect(80, 30, 341, 121));
+        gridLayout = new QGridLayout(formLayoutWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
         label_login = new QLabel(formLayoutWidget);
         label_login->setObjectName(QStringLiteral("label_login"));
         QFont font;
         font.setPointSize(12);
         label_login->setFont(font);
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, label_login);
+        gridLayout->addWidget(label_login, 0, 0, 1, 1);
 
         lineEdit_login = new QLineEdit(formLayoutWidget);
         lineEdit_login->setObjectName(QStringLiteral("lineEdit_login"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit_login);
+        gridLayout->addWidget(lineEdit_login, 0, 1, 1, 1);
 
         label_password = new QLabel(formLayoutWidget);
         label_password->setObjectName(QStringLiteral("label_password"));
         label_password->setFont(font);
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, label_password);
+        gridLayout->addWidget(label_password, 1, 0, 1, 1);
 
         lineEdit_password = new QLineEdit(formLayoutWidget);
         lineEdit_password->setObjectName(QStringLiteral("lineEdit_password"));
         lineEdit_password->setEchoMode(QLineEdit::Password);
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_password);
+        gridLayout->addWidget(lineEdit_password, 1, 1, 1, 1);
 
         pushButtonlog_in = new QPushButton(formLayoutWidget);
         pushButtonlog_in->setObjectName(QStringLiteral("pushButtonlog_in"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, pushButtonlog_in);
+        gridLayout->addWidget(pushButtonlog_in, 2, 1, 1, 1);
 
         groupBox_info = new QGroupBox(centralWidget);
         groupBox_info->setObjectName(QStringLiteral("groupBox_info"));
-        groupBox_info->setGeometry(QRect(10, 300, 511, 51));
+        groupBox_info->setGeometry(QRect(10, 290, 511, 51));
         label_info = new QLabel(groupBox_info);
         label_info->setObjectName(QStringLiteral("label_info"));
         label_info->setEnabled(true);
-        label_info->setGeometry(QRect(200, 10, 143, 31));
+        label_info->setGeometry(QRect(142, 10, 261, 31));
         QFont font1;
         font1.setPointSize(10);
         label_info->setFont(font1);
@@ -142,10 +142,10 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         groupBox_menu_2 = new QGroupBox(groupBox_menu);
         groupBox_menu_2->setObjectName(QStringLiteral("groupBox_menu_2"));
-        groupBox_menu_2->setGeometry(QRect(0, 0, 511, 111));
+        groupBox_menu_2->setGeometry(QRect(0, 0, 511, 121));
         label_user_2 = new QLabel(groupBox_menu_2);
         label_user_2->setObjectName(QStringLiteral("label_user_2"));
-        label_user_2->setGeometry(QRect(390, 40, 111, 31));
+        label_user_2->setGeometry(QRect(390, 40, 91, 31));
         label_user_2->setFont(font2);
         label_logo_2 = new QLabel(groupBox_menu_2);
         label_logo_2->setObjectName(QStringLiteral("label_logo_2"));
@@ -202,9 +202,13 @@ public:
         label_info_2->setGeometry(QRect(200, 10, 143, 31));
         label_info_2->setFont(font1);
         MainWindow->setCentralWidget(centralWidget);
+        groupBoxlogin->raise();
+        groupBox_info->raise();
+        groupBox_menu->raise();
+        label_info->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 532, 21));
+        menuBar->setGeometry(QRect(0, 0, 535, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

@@ -17,9 +17,9 @@ SeatsSchedule::~SeatsSchedule()
 
 void SeatsSchedule::on_pushButton_next_clicked()
 {
-    OrderInformation *orderinformation = new OrderInformation();
-    orderinformation->exec();
-    delete orderinformation;
+   // OrderInformation *orderinformation = new OrderInformation();
+   // orderinformation->exec();
+   // delete orderinformation;
 }
 
 void SeatsSchedule::on_pushButton_back_2_clicked()

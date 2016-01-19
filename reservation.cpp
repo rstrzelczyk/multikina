@@ -7,7 +7,7 @@ Reservation::Reservation(Employee *e, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    employee = e;
+   /* employee = e;
 
     setWindowTitle(tr("Multikina"));
 
@@ -40,7 +40,7 @@ Reservation::Reservation(Employee *e, QWidget *parent) :
     for(int i = 0; i < model2->rowCount(); ++i)
         {
           // ui->lineEdit->setText(model2->record(i).value(2).toString());
-        }
+        }*/
 
 }
 
@@ -51,7 +51,7 @@ Reservation::~Reservation()
 
 void Reservation::on_pushButton_back_clicked()
 {
-    Reservation::close();
+   // Reservation::close();
 }
 
 void Reservation::on_tableView_reservation_doubleClicked(const QModelIndex &index)
@@ -66,7 +66,7 @@ void Reservation::on_tableView_reservation_doubleClicked(const QModelIndex &inde
 
 void Reservation::on_pushButton_refresh_clicked()
 {
-    ClientRepository CR2;
+    /*ClientRepository CR2;
     QSqlQueryModel *model2 = new QSqlQueryModel;
     QSortFilterProxyModel *proxyModel2 = new QSortFilterProxyModel;
     QString sql_select2 = CR2.ShowReservationList();
@@ -84,5 +84,5 @@ void Reservation::on_pushButton_refresh_clicked()
     ui->tableView_reservation->setSortingEnabled(true);
 
     proxyModel2->setSourceModel( model2 );
-    ui->tableView_reservation->setModel( proxyModel2 );
+    ui->tableView_reservation->setModel( proxyModel2 );*/
 }

@@ -25,7 +25,7 @@ void BuildingList::on_listWidget_clicked(const QModelIndex &index)
 
 void BuildingList::newBuildingList()
 {
-    QSqlQueryModel *model3 = new QSqlQueryModel;
+    /*QSqlQueryModel *model3 = new QSqlQueryModel;
     BuildingRepository BR;
     QString buildingname= BR.getBuildingList();
     model3->setQuery(buildingname);
@@ -50,5 +50,5 @@ QList<int> toCategories(QVariant qv)
             categories.append(category.toInt() );
         }
         return categories;
-    }
+    }*/
 }

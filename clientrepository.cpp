@@ -2,19 +2,51 @@
 
 ClientRepository::ClientRepository()
 {
-    db = QSqlDatabase:: addDatabase ("QMYSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("multikina");
-    db.setUserName("root");
-    db.setPassword("");
-}
 
+}
 ClientRepository::~ClientRepository()
 {
-    db.close();
+
+}
+QList<Client*> *searchClient(QString email, QString name, QString surname)
+{
+    QList<Client*> *Clients;
+
+    int telephonenumber;
+    QString password;
+    QString query = "SELECT klient.imie, klient.nazwisko, klient.telefon, klient.email, klient.haslo FROM klient";
+    QSqlQuery sqlquery;
+    if(sqlquery.exec(query))
+    {
+        Clients = new QList<Client*>();
+        while(sqlquery.next())
+        {
+            name = sqlquery.value(0).toString();
+            surname = sqlquery.value(1).toString();
+            telephonenumber = sqlquery.value(2).toInt();
+            email = sqlquery.value(3).toString();
+            password = sqlquery.value(4).toString();
+
+            Client *newClient = new Client(name,surname,telephonenumber,email, password);
+            Clients->append(newClient);
+         }
+    }
+    return Clients;
 }
 
-QString ClientRepository::ShowClientList()
+
+
+
+
+
+
+
+
+
+
+
+
+/*QString ClientRepository::ShowClientList()
 {
     if (!db.open())
     {
@@ -44,4 +76,4 @@ QString ClientRepository::ShowReservationList()
 
         return sql_select2;
     }
-}
+}*/

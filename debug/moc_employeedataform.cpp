@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_EmployeeDataForm_t {
     QByteArrayData data[5];
-    char stringdata[105];
+    char stringdata[109];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,14 +30,14 @@ struct qt_meta_stringdata_EmployeeDataForm_t {
 static const qt_meta_stringdata_EmployeeDataForm_t qt_meta_stringdata_EmployeeDataForm = {
     {
 QT_MOC_LITERAL(0, 0, 16),
-QT_MOC_LITERAL(1, 17, 26),
-QT_MOC_LITERAL(2, 44, 0),
-QT_MOC_LITERAL(3, 45, 29),
-QT_MOC_LITERAL(4, 75, 28)
+QT_MOC_LITERAL(1, 17, 30),
+QT_MOC_LITERAL(2, 48, 0),
+QT_MOC_LITERAL(3, 49, 28),
+QT_MOC_LITERAL(4, 78, 29)
     },
-    "EmployeeDataForm\0on_pushButton_back_clicked\0"
-    "\0on_pushButtonlog_in_3_clicked\0"
-    "on_pushButton_logout_clicked\0"
+    "EmployeeDataForm\0on_pushButton_logout_2_clicked\0"
+    "\0on_pushButton_back_2_clicked\0"
+    "on_pushButtonlog_in_4_clicked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -72,9 +72,9 @@ void EmployeeDataForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
     if (_c == QMetaObject::InvokeMetaMethod) {
         EmployeeDataForm *_t = static_cast<EmployeeDataForm *>(_o);
         switch (_id) {
-        case 0: _t->on_pushButton_back_clicked(); break;
-        case 1: _t->on_pushButtonlog_in_3_clicked(); break;
-        case 2: _t->on_pushButton_logout_clicked(); break;
+        case 0: _t->on_pushButton_logout_2_clicked(); break;
+        case 1: _t->on_pushButton_back_2_clicked(); break;
+        case 2: _t->on_pushButtonlog_in_4_clicked(); break;
         default: ;
         }
     }
@@ -82,7 +82,7 @@ void EmployeeDataForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
 }
 
 const QMetaObject EmployeeDataForm::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_EmployeeDataForm.data,
+    { &QMainWindow::staticMetaObject, qt_meta_stringdata_EmployeeDataForm.data,
       qt_meta_data_EmployeeDataForm,  qt_static_metacall, 0, 0}
 };
 
@@ -97,12 +97,12 @@ void *EmployeeDataForm::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_EmployeeDataForm.stringdata))
         return static_cast<void*>(const_cast< EmployeeDataForm*>(this));
-    return QDialog::qt_metacast(_clname);
+    return QMainWindow::qt_metacast(_clname);
 }
 
 int EmployeeDataForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QDialog::qt_metacall(_c, _id, _a);
+    _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
