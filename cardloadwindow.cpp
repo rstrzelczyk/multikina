@@ -13,3 +13,8 @@ CardLoadWindow::~CardLoadWindow()
 {
     delete ui;
 }
+
+void CardLoadWindow::on_pushButton_clicked()
+{
+    CardLoadWindow::close();
+}

@@ -14,7 +14,11 @@ int main(int argc, char *argv[])
    database.open();
 
    AccountManager login;
+<<<<<<< HEAD
    login.show();
+=======
+   //login.show();
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 
    return a.exec();
 }

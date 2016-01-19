@@ -7,10 +7,10 @@
 
 class Schedule
 {
-    QList <Seance> Seances;
+    QList <Seance*>* Seances;
 
 public:
-    Schedule();
+    Schedule(QList<Seance*>*);
 
 
 };

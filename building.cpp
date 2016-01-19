@@ -22,3 +22,8 @@ QString Building::getStreet()
 {
     return street;
 }
+
+void Building::setSchedule(Schedule* s)
+{
+    this->schedule =s;
+}

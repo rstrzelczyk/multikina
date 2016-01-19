@@ -19,8 +19,13 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_SearchClientWindow_t {
+<<<<<<< HEAD
     QByteArrayData data[8];
     char stringdata[191];
+=======
+    QByteArrayData data[10];
+    char stringdata[238];
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,13 +41,24 @@ QT_MOC_LITERAL(3, 47, 28),
 QT_MOC_LITERAL(4, 76, 35),
 QT_MOC_LITERAL(5, 112, 4),
 QT_MOC_LITERAL(6, 117, 34),
+<<<<<<< HEAD
 QT_MOC_LITERAL(7, 152, 37)
+=======
+QT_MOC_LITERAL(7, 152, 37),
+QT_MOC_LITERAL(8, 190, 40),
+QT_MOC_LITERAL(9, 231, 5)
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
     },
     "SearchClientWindow\0on_pushButton_back_clicked\0"
     "\0on_pushButton_logout_clicked\0"
     "on_lineEdit_searchemail_textChanged\0"
     "arg1\0on_lineEdit_searchname_textChanged\0"
     "on_lineEdit_searchsurname_textChanged\0"
+<<<<<<< HEAD
+=======
+    "on_tableView_search_client_doubleClicked\0"
+    "index\0"
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 };
 #undef QT_MOC_LITERAL
 
@@ -52,7 +68,11 @@ static const uint qt_meta_data_SearchClientWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
+<<<<<<< HEAD
        5,   14, // methods
+=======
+       6,   14, // methods
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -60,11 +80,20 @@ static const uint qt_meta_data_SearchClientWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
+<<<<<<< HEAD
        1,    0,   39,    2, 0x08,
        3,    0,   40,    2, 0x08,
        4,    1,   41,    2, 0x08,
        6,    1,   44,    2, 0x08,
        7,    1,   47,    2, 0x08,
+=======
+       1,    0,   44,    2, 0x08,
+       3,    0,   45,    2, 0x08,
+       4,    1,   46,    2, 0x08,
+       6,    1,   49,    2, 0x08,
+       7,    1,   52,    2, 0x08,
+       8,    1,   55,    2, 0x08,
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 
  // slots: parameters
     QMetaType::Void,
@@ -72,6 +101,10 @@ static const uint qt_meta_data_SearchClientWindow[] = {
     QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void, QMetaType::QString,    5,
+<<<<<<< HEAD
+=======
+    QMetaType::Void, QMetaType::QModelIndex,    9,
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 
        0        // eod
 };
@@ -86,6 +119,10 @@ void SearchClientWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         case 2: _t->on_lineEdit_searchemail_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 3: _t->on_lineEdit_searchname_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 4: _t->on_lineEdit_searchsurname_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+<<<<<<< HEAD
+=======
+        case 5: _t->on_tableView_search_client_doubleClicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
         default: ;
         }
     }
@@ -116,6 +153,7 @@ int SearchClientWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
+<<<<<<< HEAD
         if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
         _id -= 5;
@@ -123,6 +161,15 @@ int SearchClientWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 5;
+=======
+        if (_id < 6)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 6;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 6)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 6;
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
     }
     return _id;
 }

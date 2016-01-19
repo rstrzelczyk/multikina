@@ -4,6 +4,7 @@
 #include "building.h"
 #include "discount.h"
 #include "card.h"
+#include "clientrepository.h"
 
 #include<QString>
 
@@ -11,7 +12,7 @@ class Client
 {
     QString name;
     QString surname;
-    int telephonenumber;
+    QString telephonenumber;
     QString email;
     QString password;
 
@@ -24,13 +25,16 @@ class Client
 
 
 public:
-    Client(QString name, QString surname, int telephonenumber, QString email, QString password);
+    Client(QString name, QString surname, QString telephonenumber, QString email, QString password, Building *building);
 
     QString getName();
     QString getSurname();
-    int getTelephonenumber();
+    QString getTelephonenumber();
     QString getEmail();
     QString getPassword();
+
+    void ConfirmAccount();
+    void save();
 };
 
 #endif // CLIENT_H

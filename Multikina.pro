@@ -30,7 +30,34 @@ SOURCES += \
     buildinglist.cpp \
     clientrepository.cpp \
     client.cpp \
+<<<<<<< HEAD
     seance.cpp
+=======
+    seance.cpp \
+    newclientaccountform.cpp \
+    clientaccauntform.cpp \
+    reservationwindow.cpp \
+    time.cpp \
+    ticketmanager.cpp \
+    ticket.cpp \
+    seatsschedule.cpp \
+    seat.cpp \
+    reservationticketoffice.cpp \
+    reservationclass.cpp \
+    repertoir.cpp \
+    payment.cpp \
+    numberreservedtickets.cpp \
+    discount.cpp \
+    date.cpp \
+    cinemaroom.cpp \
+    chain.cpp \
+    cardscanwindow.cpp \
+    cardloadwindow.cpp \
+    card.cpp \
+    orderinformation.cpp \
+    ordervalidationticketoffice.cpp \
+    clientmanager.cpp
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 
 HEADERS  += \
     accountmanager.h \
@@ -48,7 +75,34 @@ HEADERS  += \
     buildinglist.h \
     clientrepository.h \
     client.h \
+<<<<<<< HEAD
     seance.h
+=======
+    seance.h \
+    newclientaccountform.h \
+    clientaccauntform.h \
+    reservationwindow.h \
+    time.h \
+    ticketmanager.h \
+    ticket.h \
+    seatsschedule.h \
+    seat.h \
+    reservationticketoffice.h \
+    reservationclass.h \
+    repertoir.h \
+    payment.h \
+    numberreservedtickets.h \
+    discount.h \
+    date.h \
+    cinemaroom.h \
+    chain.h \
+    cardscanwindow.h \
+    cardloadwindow.h \
+    card.h \
+    orderinformation.h \
+    ordervalidationticketoffice.h \
+    clientmanager.h
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 
 FORMS    += \
     loginwindow.ui \
@@ -57,7 +111,22 @@ FORMS    += \
     calender.ui \
     loginwindow2.ui \
     searchclientwindow.ui \
+<<<<<<< HEAD
     buildinglist.ui
+=======
+    buildinglist.ui \
+    newclientaccountform.ui \
+    clientaccauntform.ui \
+    reservationwindow.ui \
+    seatsschedule.ui \
+    reservationticketoffice.ui \
+    payment.ui \
+    ordervalidationticketoffice.ui \
+    orderinformation.ui \
+    numberreservedtickets.ui \
+    cardscanwindow.ui \
+    cardloadwindow.ui
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 
 RESOURCES += \
     logo.qrc

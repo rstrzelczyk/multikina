@@ -36,12 +36,20 @@
       </rect>
      </property>
     </widget>
+<<<<<<< HEAD
     <widget class="QWidget" name="">
+=======
+    <widget class="QWidget" name="layoutWidget">
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
      <property name="geometry">
       <rect>
        <x>30</x>
        <y>10</y>
+<<<<<<< HEAD
        <width>611</width>
+=======
+       <width>621</width>
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
        <height>41</height>
       </rect>
      </property>
@@ -70,6 +78,11 @@
        </widget>
       </item>
      </layout>
+<<<<<<< HEAD
+=======
+     <zorder>lineEdit_searchname</zorder>
+     <zorder>lineEdit_searchsurname</zorder>
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
      <zorder>lineEdit_searchemail</zorder>
     </widget>
    </widget>

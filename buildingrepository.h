@@ -16,6 +16,7 @@ public:
     BuildingRepository();
     ~BuildingRepository();
 
+<<<<<<< HEAD
     void getSchedule(Building *building);
 
 
@@ -24,6 +25,11 @@ public:
 
     //QString getBuildingList();
     //void getBuildingList2();
+=======
+    Schedule* getSchedule(Building *building);
+
+    QList<Building*> *getBuildingList();
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 };
 
 #endif // BUILDINGREPOSITORY_H

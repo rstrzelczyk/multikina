@@ -113,7 +113,7 @@
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>kowalski</string>
        </property>
       </widget>
      </item>
@@ -269,7 +269,11 @@
       </widget>
      </item>
      <item row="0" column="2">
-      <widget class="QLineEdit" name="lineEdit_number_normal"/>
+      <widget class="QLineEdit" name="lineEdit_number_normal">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
      <item row="0" column="3">
       <widget class="QPushButton" name="pushButton_plus_normal">
@@ -298,7 +302,11 @@
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QLineEdit" name="lineEdit_number_student"/>
+      <widget class="QLineEdit" name="lineEdit_number_student">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
      <item row="1" column="3">
       <widget class="QPushButton" name="pushButton_plus_student">
@@ -327,7 +335,11 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLineEdit" name="lineEdit_number_senior"/>
+      <widget class="QLineEdit" name="lineEdit_number_senior">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
      <item row="2" column="3">
       <widget class="QPushButton" name="pushButton_plus_senio">
@@ -356,7 +368,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Cena biletów:</string>
+        <string/>
        </property>
       </widget>
      </item>

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_NewClientAccountForm_t {
-    QByteArrayData data[12];
-    char stringdata[305];
+    QByteArrayData data[17];
+    char stringdata[444];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,26 +30,35 @@ struct qt_meta_stringdata_NewClientAccountForm_t {
 static const qt_meta_stringdata_NewClientAccountForm_t qt_meta_stringdata_NewClientAccountForm = {
     {
 QT_MOC_LITERAL(0, 0, 20),
-QT_MOC_LITERAL(1, 21, 37),
-QT_MOC_LITERAL(2, 59, 0),
-QT_MOC_LITERAL(3, 60, 46),
-QT_MOC_LITERAL(4, 107, 37),
-QT_MOC_LITERAL(5, 145, 24),
-QT_MOC_LITERAL(6, 170, 16),
-QT_MOC_LITERAL(7, 187, 24),
-QT_MOC_LITERAL(8, 212, 24),
-QT_MOC_LITERAL(9, 237, 21),
-QT_MOC_LITERAL(10, 259, 25),
-QT_MOC_LITERAL(11, 285, 18)
+QT_MOC_LITERAL(1, 21, 24),
+QT_MOC_LITERAL(2, 46, 0),
+QT_MOC_LITERAL(3, 47, 37),
+QT_MOC_LITERAL(4, 85, 46),
+QT_MOC_LITERAL(5, 132, 37),
+QT_MOC_LITERAL(6, 170, 34),
+QT_MOC_LITERAL(7, 205, 4),
+QT_MOC_LITERAL(8, 210, 18),
+QT_MOC_LITERAL(9, 229, 9),
+QT_MOC_LITERAL(10, 239, 8),
+QT_MOC_LITERAL(11, 248, 38),
+QT_MOC_LITERAL(12, 287, 29),
+QT_MOC_LITERAL(13, 317, 32),
+QT_MOC_LITERAL(14, 350, 27),
+QT_MOC_LITERAL(15, 378, 30),
+QT_MOC_LITERAL(16, 409, 33)
     },
-    "NewClientAccountForm\0"
+    "NewClientAccountForm\0on_pushButton_ok_clicked\0"
+    "\0on_pushButton_choose_building_clicked\0"
+    "on_pushButton_confitm_student_discount_clicked\0"
     "on_pushButton_senior_discount_clicked\0"
-    "\0on_pushButton_confitm_student_discount_clicked\0"
-    "on_pushButton_choose_building_clicked\0"
-    "on_pushButton_ok_clicked\0setDefaultValues\0"
-    "AllObligatoryDataWritten\0"
-    "isValidPhoneNumberFormat\0isValidPasswordFormat\0"
-    "isPassword2SameAsPassword\0isValidEmailFormat\0"
+    "on_lineEdit_password_2_textChanged\0"
+    "arg1\0setChoosenBuilding\0Building*\0"
+    "building\0on_lineEdit_confirnpassword_textEdited\0"
+    "on_lineEdit_email_textChanged\0"
+    "on_lineEdit_telephone_textEdited\0"
+    "on_lineEdit_name_textEdited\0"
+    "on_lineEdit_surname_textEdited\0"
+    "on_lineEdit_email_editingFinished\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,7 +68,7 @@ static const uint qt_meta_data_NewClientAccountForm[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -67,28 +76,32 @@ static const uint qt_meta_data_NewClientAccountForm[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   64,    2, 0x08,
-       3,    0,   65,    2, 0x08,
-       4,    0,   66,    2, 0x08,
-       5,    0,   67,    2, 0x08,
-       6,    0,   68,    2, 0x08,
-       7,    0,   69,    2, 0x08,
-       8,    0,   70,    2, 0x08,
-       9,    0,   71,    2, 0x08,
-      10,    0,   72,    2, 0x08,
-      11,    0,   73,    2, 0x08,
+       1,    0,   74,    2, 0x08,
+       3,    0,   75,    2, 0x08,
+       4,    0,   76,    2, 0x08,
+       5,    0,   77,    2, 0x08,
+       6,    1,   78,    2, 0x08,
+       8,    1,   81,    2, 0x08,
+      11,    1,   84,    2, 0x08,
+      12,    1,   87,    2, 0x08,
+      13,    1,   90,    2, 0x08,
+      14,    1,   93,    2, 0x08,
+      15,    1,   96,    2, 0x08,
+      16,    0,   99,    2, 0x08,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    7,
+    QMetaType::Void, 0x80000000 | 9,   10,
+    QMetaType::Void, QMetaType::QString,    7,
+    QMetaType::Void, QMetaType::QString,    7,
+    QMetaType::Void, QMetaType::QString,    7,
+    QMetaType::Void, QMetaType::QString,    7,
+    QMetaType::Void, QMetaType::QString,    7,
     QMetaType::Void,
-    QMetaType::Bool,
-    QMetaType::Bool,
-    QMetaType::Bool,
-    QMetaType::Bool,
-    QMetaType::Bool,
 
        0        // eod
 };
@@ -98,28 +111,25 @@ void NewClientAccountForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
     if (_c == QMetaObject::InvokeMetaMethod) {
         NewClientAccountForm *_t = static_cast<NewClientAccountForm *>(_o);
         switch (_id) {
-        case 0: _t->on_pushButton_senior_discount_clicked(); break;
-        case 1: _t->on_pushButton_confitm_student_discount_clicked(); break;
-        case 2: _t->on_pushButton_choose_building_clicked(); break;
-        case 3: _t->on_pushButton_ok_clicked(); break;
-        case 4: _t->setDefaultValues(); break;
-        case 5: { bool _r = _t->AllObligatoryDataWritten();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 6: { bool _r = _t->isValidPhoneNumberFormat();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 7: { bool _r = _t->isValidPasswordFormat();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 8: { bool _r = _t->isPassword2SameAsPassword();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 9: { bool _r = _t->isValidEmailFormat();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 0: _t->on_pushButton_ok_clicked(); break;
+        case 1: _t->on_pushButton_choose_building_clicked(); break;
+        case 2: _t->on_pushButton_confitm_student_discount_clicked(); break;
+        case 3: _t->on_pushButton_senior_discount_clicked(); break;
+        case 4: _t->on_lineEdit_password_2_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 5: _t->setChoosenBuilding((*reinterpret_cast< Building*(*)>(_a[1]))); break;
+        case 6: _t->on_lineEdit_confirnpassword_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 7: _t->on_lineEdit_email_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 8: _t->on_lineEdit_telephone_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 9: _t->on_lineEdit_name_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 10: _t->on_lineEdit_surname_textEdited((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 11: _t->on_lineEdit_email_editingFinished(); break;
         default: ;
         }
     }
 }
 
 const QMetaObject NewClientAccountForm::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_NewClientAccountForm.data,
+    { &QMainWindow::staticMetaObject, qt_meta_stringdata_NewClientAccountForm.data,
       qt_meta_data_NewClientAccountForm,  qt_static_metacall, 0, 0}
 };
 
@@ -134,22 +144,22 @@ void *NewClientAccountForm::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_NewClientAccountForm.stringdata))
         return static_cast<void*>(const_cast< NewClientAccountForm*>(this));
-    return QDialog::qt_metacast(_clname);
+    return QMainWindow::qt_metacast(_clname);
 }
 
 int NewClientAccountForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QDialog::qt_metacall(_c, _id, _a);
+    _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 12;
     }
     return _id;
 }

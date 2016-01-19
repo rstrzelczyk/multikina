@@ -4,14 +4,21 @@
 
 EmployeeRepository::EmployeeRepository()
 {
+<<<<<<< HEAD
 
 }
+=======
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 
+}
 EmployeeRepository::~EmployeeRepository()
 {
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 bool EmployeeRepository::findEmployee(QString username, QString password)
 {
     QString query = "SELECT imie, nazwisko, login, haslo FROM pracownik WHERE login=\'" + username + "\' AND haslo=\'" + password + "\'";
@@ -32,8 +39,12 @@ bool EmployeeRepository::findEmployee(QString username, QString password)
         return false;
     }
 }
+<<<<<<< HEAD
 
 Employee EmployeeRepository::getEmployee(QString username)
+=======
+Employee *EmployeeRepository::getEmployee(QString username)
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 {
     QString name;
     QString surname;
@@ -47,6 +58,7 @@ Employee EmployeeRepository::getEmployee(QString username)
     //QString query = "SELECT imie, nazwisko, login, haslo FROM pracownik WHERE login=\'" + username + "\'";
     QSqlQuery sqlquery;
     if(sqlquery.exec(query))
+<<<<<<< HEAD
     {
         if(sqlquery.next())
         {
@@ -68,6 +80,62 @@ Employee EmployeeRepository::getEmployee(QString username)
 }
 
 void EmployeeRepository::changePassword(QString username, QString newpassword)
+=======
+    {
+        if(sqlquery.next())
+        {
+            name = sqlquery.value(0).toString();
+            surname = sqlquery.value(1).toString();
+            username = sqlquery.value(2).toString();
+            password = sqlquery.value(3).toString();
+            cinemaname = sqlquery.value(4).toString();
+            street = sqlquery.value(5).toString();
+            city = sqlquery.value(6).toString();
+         }
+    }
+    Building* building = new Building(city,cinemaname,street);
+    BuildingRepository BR;
+    Schedule *schedule = BR.getSchedule(building);
+    building->setSchedule(schedule);
+    Employee *employee = new Employee(name,surname,username,password,building);
+    return employee;
+}
+void EmployeeRepository::changePassword(QString username, QString newpassword)
+{
+    QString query = "UPDATE pracownik SET haslo = '" + newpassword + "\' WHERE pracownik.login =\'" + username + "\'";
+    QSqlQuery sqlquery;
+    sqlquery.exec(query);
+}
+QString EmployeeRepository::findbuilding(QString username, QString password)
+{
+    QString buildname ="";
+    QSqlQuery query2;
+    if(query2.exec("SELECT budynek.nazwabudynku FROM budynek LEFT JOIN pracownik ON (pracownik.idBudynku=budynek.idBudynku) WHERE login=\'"+ username +
+                              "\' AND haslo=\'" + password + "\'"))
+    {
+        while(query2.next())
+        {
+            buildname = query2.value(0).toString();
+        }
+    }
+    return buildname;
+}
+QString EmployeeRepository::refreshscheduletoday(QString building, QString date, QString time)
+{
+    //QString sql_select = "SELECT film.tytul, seans.godzina, seans.data FROM film RIGHT JOIN seans ON (film.idFilmu=seans.Film_idFilmu) LEFT JOIN sala_kinowa ON (seans.idSali_Kinowej = sala_kinowa.idSali_Kinowej) LEFT JOIN budynek ON (sala_kinowa.idBudynku = budynek.idBudynku)";
+    QString sql_select = "SELECT film.tytul, seans.godzina, seans.data FROM film RIGHT JOIN seans ON (film.idFilmu=seans.Film_idFilmu) LEFT JOIN sala_kinowa ON (seans.idSali_Kinowej = sala_kinowa.idSali_Kinowej) LEFT JOIN budynek ON (sala_kinowa.idBudynku = budynek.idBudynku)";
+    sql_select += "WHERE budynek.nazwabudynku = '";
+    sql_select += building +"'";
+    sql_select += " AND seans.data = '";
+    sql_select += date + "'";
+    sql_select += " AND seans.godzina >= '";
+    sql_select += time + "'";
+    sql_select += "GROUP BY film.tytul, seans.data, seans.godzina" ;
+  return sql_select;
+}
+
+QString EmployeeRepository::refreshscheduleotherdays(QString building, QString date)
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 {
     QString query = "UPDATE pracownik SET haslo = '" + newpassword + "\' WHERE pracownik.login =\'" + username + "\'";
     QSqlQuery sqlquery;

@@ -16,6 +16,32 @@ INPUT(
 ./debug\clientrepository.o
 ./debug\client.o
 ./debug\seance.o
+<<<<<<< HEAD
+=======
+./debug\newclientaccountform.o
+./debug\clientaccauntform.o
+./debug\reservationwindow.o
+./debug\time.o
+./debug\ticketmanager.o
+./debug\ticket.o
+./debug\seatsschedule.o
+./debug\seat.o
+./debug\reservationticketoffice.o
+./debug\reservationclass.o
+./debug\repertoir.o
+./debug\payment.o
+./debug\numberreservedtickets.o
+./debug\discount.o
+./debug\date.o
+./debug\cinemaroom.o
+./debug\chain.o
+./debug\cardscanwindow.o
+./debug\cardloadwindow.o
+./debug\card.o
+./debug\orderinformation.o
+./debug\ordervalidationticketoffice.o
+./debug\clientmanager.o
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 ./debug\qrc_logo.o
 ./debug\moc_loginwindow.o
 ./debug\moc_schedulewindow.o
@@ -24,4 +50,18 @@ INPUT(
 ./debug\moc_loginwindow2.o
 ./debug\moc_searchclientwindow.o
 ./debug\moc_buildinglist.o
+<<<<<<< HEAD
+=======
+./debug\moc_newclientaccountform.o
+./debug\moc_clientaccauntform.o
+./debug\moc_reservationwindow.o
+./debug\moc_seatsschedule.o
+./debug\moc_reservationticketoffice.o
+./debug\moc_payment.o
+./debug\moc_numberreservedtickets.o
+./debug\moc_cardscanwindow.o
+./debug\moc_cardloadwindow.o
+./debug\moc_orderinformation.o
+./debug\moc_ordervalidationticketoffice.o
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 );

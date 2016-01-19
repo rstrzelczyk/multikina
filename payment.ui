@@ -69,7 +69,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Niezalogowany</string>
+        <string>kowalski</string>
        </property>
       </widget>
      </item>
@@ -92,7 +92,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;-</string>
+     <string/>
     </property>
    </widget>
   </widget>

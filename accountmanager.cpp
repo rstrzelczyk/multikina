@@ -2,9 +2,12 @@
 
 AccountManager::AccountManager()
 {
-
+    loginWindow=new LoginWindow(this);
+    loginWindow->show();
+    newclientaccountform = new NewClientAccountForm(this);
 }
 AccountManager::~AccountManager()
+<<<<<<< HEAD
 {
 
 }
@@ -63,71 +66,84 @@ void AccountManager::ShowSearchclientwindow(Employee *e)
 
 
 /*bool AccountManager::log_in(QString &name, QString &surname, QString &username, QString &password)
+=======
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 {
-   EmployeeRepository er;
 
-   if (er.findEmployee(name, surname, username, password))
-   {
-       return true;
-   }
-   else
-   {
+}
+void AccountManager::show()
+{
+    //loginWindow=new LoginWindow(this);
+    loginWindow->show();
+}
+void AccountManager::show2()
+{
+    LoginWindow2 *loginwindow2=new LoginWindow2();
+    loginwindow2->show();
+}
+void AccountManager::showScheduleWindow(Employee *e)
+{
+    ScheduleWindow *schedulewindow=new ScheduleWindow(this,e);
+    schedulewindow->show();
+    loginWindow->hide();
+}
+bool AccountManager::login(QString username, QString password)
+{
+    EmployeeRepository er;
+    if(!er.findEmployee(username, password))
+    {
        return false;
-   }
+    }
+    else
+    {
+        EmployeeRepository ER;
+        employee = ER.getEmployee(username);
+        showScheduleWindow(employee);
+        //ScheduleWindow *schedulewindow=new ScheduleWindow(this,employee);
+        //schedulewindow->show();
+        loginWindow->hide();
+        return true;
+    }
 }
-
-//void AccountManager::log_out()
-//{
-    //  MainWindow w;
- //  w.show();
-//}
-
-void AccountManager::runprogram(QString name, QString surname, QString username, QString password)
+void AccountManager::ShowEmployeeDataForm(Employee *e)
 {
-    employee = new Employee(name,surname,username,password);
-
-    CinemaBuildingRepertoirSchedule *cinemabuildingrepertoirschedule = new CinemaBuildingRepertoirSchedule(employee);
-    cinemabuildingrepertoirschedule->exec();
-    delete cinemabuildingrepertoirschedule;
-
+    EmployeeDataForm *employeedataform=new EmployeeDataForm(e);
+    employeedataform->show();
 }
-
 void AccountManager::ShowSearchclientwindow(Employee *e)
 {
-    employee = e;
-    SearchClientWindow *searchclientwindow = new SearchClientWindow(employee);
-    searchclientwindow->exec();
-    delete searchclientwindow;
+    SearchClientWindow *searchclientwindow = new SearchClientWindow(e);
+    searchclientwindow->show();
 }
-
-void AccountManager::ShowNewAccountForm(Employee *e, QString building)
+void AccountManager::ShowNewAccountForm()
 {
-    employee = e;
-    NewClientAccountForm *newclientaccountform = new NewClientAccountForm(building, employee);
-    newclientaccountform->exec();
-    delete newclientaccountform;
+
+    newclientaccountform->showWindow(employee);
 }
 
 void AccountManager::ShowReservation(Employee *e)
 {
-    employee = e;
-    Reservation *reservation = new Reservation(employee);
-    reservation->exec();
-    delete reservation;
+    ReservationWindow *reservationwindow = new ReservationWindow(e);
+    reservationwindow->show();
 }
-
-void AccountManager::ShowEmployeeDataForm(Employee *e)
+bool AccountManager::checkEmailExists(QString email)
 {
-    employee = e;
-    EmployeeDataForm *employeedataform = new EmployeeDataForm(employee);
-    employeedataform->exec();
-    delete employeedataform;
+    ClientRepository CR;
+    if(CR.isEmailUsed(email))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
-
-void AccountManager::ShowNumberReservedTickets()
-{
-    NumberReservedTickets *numberreservedtickets = new NumberReservedTickets();
-    numberreservedtickets->exec();
-    delete numberreservedtickets;
-}
+<<<<<<< HEAD
 */
+=======
+ void AccountManager::ShowNumberReservedTickets(Employee *e)
+ {
+     NumberReservedTickets *numberreservedtickets = new NumberReservedTickets(e);
+     numberreservedtickets->show();
+ }
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b

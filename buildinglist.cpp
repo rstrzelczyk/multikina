@@ -1,15 +1,16 @@
 #include "buildinglist.h"
 #include "ui_buildinglist.h"
 
-BuildingList::BuildingList(QWidget *parent) :
+BuildingList::BuildingList(NewClientAccountForm* form,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::BuildingList)
 {
     ui->setupUi(this);
 
     setWindowTitle(tr("Multikina"));
-
-    newBuildingList();
+    this->form=form;
+    BuildingRepository BR;
+    displayBuildings(BR.getBuildingList());
 
 }
 
@@ -20,11 +21,12 @@ BuildingList::~BuildingList()
 
 void BuildingList::on_listWidget_clicked(const QModelIndex &index)
 {
-    BuildingList::close();
+   // BuildingList::close();
 }
 
-void BuildingList::newBuildingList()
+void BuildingList::displayBuildings(QList<Building*>* buildings)
 {
+<<<<<<< HEAD
     /*QSqlQueryModel *model3 = new QSqlQueryModel;
     BuildingRepository BR;
     QString buildingname= BR.getBuildingList();
@@ -38,11 +40,16 @@ void BuildingList::newBuildingList()
     QTableView *view = new QTableView;
            view->setModel(model3);
            view->show();
+=======
+    Buildings=buildings;
+    for(int i = 0; i < buildings->count(); ++i)
+     ui->listWidget->addItem(buildings->at(i)->getCinemaname() + " |  " + buildings->at(i)->getStreet() + " |  " + buildings->at(i)->getCity());
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 }
 
-
-QList<int> toCategories(QVariant qv)
+void BuildingList::on_listWidget_doubleClicked(const QModelIndex &index)
 {
+<<<<<<< HEAD
     QList<int> categories;
     if(qv.isValid() && qv.type() == QVariant::List)
     {
@@ -51,4 +58,9 @@ QList<int> toCategories(QVariant qv)
         }
         return categories;
     }*/
+=======
+    int checkedIndex = index.row();
+    Building *building = Buildings->at(checkedIndex);
+    form->setChoosenBuilding(building);
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
 }

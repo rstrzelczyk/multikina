@@ -8,7 +8,6 @@ EmployeeDataForm::EmployeeDataForm(Employee *e, QWidget *parent) :
     ui->setupUi(this);
     employee=e;
     setWindowTitle(tr("Multikina"));
-
     QPixmap pix (":/logo/prefix1/images/logo");
     ui->label_logo_4->setPixmap(pix);
     ui->pushButton_back_2->setStyleSheet("background-image: url(:/logo/prefix1/images/back)");
@@ -25,6 +24,7 @@ void EmployeeDataForm::on_pushButton_logout_2_clicked()
     EmployeeDataForm::close();
     AccountManager am;
     am.show();
+<<<<<<< HEAD
 }
 
 void EmployeeDataForm::on_pushButton_back_2_clicked()
@@ -36,6 +36,19 @@ void EmployeeDataForm::on_pushButton_back_2_clicked()
 
 void EmployeeDataForm::on_pushButtonlog_in_4_clicked()
 {
+=======
+}
+
+void EmployeeDataForm::on_pushButton_back_2_clicked()
+{
+     EmployeeDataForm::close();
+     ScheduleWindow *schedulewindow=new ScheduleWindow(employee);
+     schedulewindow->show();
+}
+
+void EmployeeDataForm::on_pushButtonlog_in_4_clicked()
+{
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
     if(ui->lineEdit_newpassword_2->text() != ui->lineEdit_repeatnewpassword_2->text())
     {
         ui->lineEdit_repeatnewpassword_2->setText("");

@@ -58,7 +58,7 @@
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>           5</string>
        </property>
       </widget>
      </item>
@@ -82,7 +82,7 @@
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>         Zapłacono</string>
        </property>
       </widget>
      </item>
@@ -165,7 +165,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Niezalogowany</string>
+        <string>Kowalski</string>
        </property>
       </widget>
      </item>
@@ -188,7 +188,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;-</string>
+     <string/>
     </property>
    </widget>
   </widget>

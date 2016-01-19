@@ -147,9 +147,9 @@ public:
         Payment->setWindowTitle(QApplication::translate("Payment", "Dialog", 0));
         groupBox_menu->setTitle(QString());
         label_logo_4->setText(QString());
-        label_user_5->setText(QApplication::translate("Payment", "Niezalogowany", 0));
+        label_user_5->setText(QApplication::translate("Payment", "kowalski", 0));
         pushButton_logout_2->setText(QApplication::translate("Payment", "Wyloguj", 0));
-        pushButton_back_2->setText(QApplication::translate("Payment", "<-", 0));
+        pushButton_back_2->setText(QString());
         groupBoxlogin->setTitle(QString());
         label_price->setText(QApplication::translate("Payment", "Do zap\305\202aty:", 0));
         label_price_2->setText(QString());

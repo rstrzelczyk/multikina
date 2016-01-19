@@ -34,7 +34,11 @@ public:
     QWidget *centralwidget;
     QGroupBox *groupBoxlogin;
     QTableView *tableView_search_client;
+<<<<<<< HEAD
     QWidget *widget;
+=======
+    QWidget *layoutWidget;
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
     QHBoxLayout *horizontalLayout_2;
     QLineEdit *lineEdit_searchemail;
     QLineEdit *lineEdit_searchname;
@@ -63,6 +67,7 @@ public:
         tableView_search_client = new QTableView(groupBoxlogin);
         tableView_search_client->setObjectName(QStringLiteral("tableView_search_client"));
         tableView_search_client->setGeometry(QRect(30, 50, 621, 501));
+<<<<<<< HEAD
         widget = new QWidget(groupBoxlogin);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(30, 10, 611, 41));
@@ -70,22 +75,44 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         lineEdit_searchemail = new QLineEdit(widget);
+=======
+        layoutWidget = new QWidget(groupBoxlogin);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(30, 10, 621, 41));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        lineEdit_searchemail = new QLineEdit(layoutWidget);
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
         lineEdit_searchemail->setObjectName(QStringLiteral("lineEdit_searchemail"));
 
         horizontalLayout_2->addWidget(lineEdit_searchemail);
 
+<<<<<<< HEAD
         lineEdit_searchname = new QLineEdit(widget);
+=======
+        lineEdit_searchname = new QLineEdit(layoutWidget);
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
         lineEdit_searchname->setObjectName(QStringLiteral("lineEdit_searchname"));
         lineEdit_searchname->setMinimumSize(QSize(0, 20));
 
         horizontalLayout_2->addWidget(lineEdit_searchname);
 
+<<<<<<< HEAD
         lineEdit_searchsurname = new QLineEdit(widget);
+=======
+        lineEdit_searchsurname = new QLineEdit(layoutWidget);
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
         lineEdit_searchsurname->setObjectName(QStringLiteral("lineEdit_searchsurname"));
         lineEdit_searchsurname->setMinimumSize(QSize(0, 20));
 
         horizontalLayout_2->addWidget(lineEdit_searchsurname);
 
+<<<<<<< HEAD
+=======
+        lineEdit_searchname->raise();
+        lineEdit_searchsurname->raise();
+>>>>>>> d9a1822419a3bb5ab32e7ef10a60779c7973368b
         lineEdit_searchemail->raise();
         groupBox_menu = new QGroupBox(centralwidget);
         groupBox_menu->setObjectName(QStringLiteral("groupBox_menu"));

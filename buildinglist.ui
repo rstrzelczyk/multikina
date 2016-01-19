@@ -40,6 +40,16 @@
      </rect>
     </property>
    </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>321</width>
+      <height>291</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

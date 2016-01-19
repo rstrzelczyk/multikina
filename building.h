@@ -23,7 +23,7 @@ public:
     QString getCity();
     QString getCinemaname();
     QString getStreet();
-
+    void setSchedule(Schedule*);
 };
 
 #endif // BUILDING_H

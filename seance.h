@@ -13,7 +13,7 @@ class Seance
     CinemaRoom *cinemaname;
     Movie *movie;
 public:
-    Seance();
+    Seance(QString title, QString date, QString time, CinemaRoom* room);
 };
 
 #endif // SEANCE_H

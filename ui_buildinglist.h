@@ -16,6 +16,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QTableView>
 
 QT_BEGIN_NAMESPACE
@@ -25,6 +26,7 @@ class Ui_BuildingList
 public:
     QGroupBox *groupBox_buildinglist;
     QTableView *tableView;
+    QListWidget *listWidget;
 
     void setupUi(QDialog *BuildingList)
     {
@@ -40,6 +42,9 @@ public:
         tableView = new QTableView(groupBox_buildinglist);
         tableView->setObjectName(QStringLiteral("tableView"));
         tableView->setGeometry(QRect(20, 30, 321, 291));
+        listWidget = new QListWidget(groupBox_buildinglist);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(20, 30, 321, 291));
 
         retranslateUi(BuildingList);
 
